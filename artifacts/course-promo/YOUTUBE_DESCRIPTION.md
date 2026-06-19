@@ -2,11 +2,9 @@
 
 > The canonical, maintained copy of this description lives at the repo root: `youtube-description.md`. This file is kept in sync as the promo artifact's local reference.
 
-## Title options
+## Title
 
-- Basic Developmental Psychology — An AI-Taught Course
-- Basic Developmental Psychology | AI Tutor, Adaptive Practice & Graded Coursework
-- How We Become Who We Are — Basic Developmental Psychology
+Basic Developmental Psychology — AI-Powered Course
 
 ## Short description (for the box, ~150 chars)
 

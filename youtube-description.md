@@ -1,10 +1,8 @@
 # YouTube — Basic Developmental Psychology
 
-## 🎬 Title options (pick one)
+## 🎬 Title
 
-1. Basic Developmental Psychology — a complete AI-taught introduction to the field
-2. Basic Developmental Psychology — a full unit that teaches, tutors, drills, and grades itself
-3. Inside Basic Developmental Psychology — a rigorous primer for newcomers to the discipline
+Basic Developmental Psychology — AI-Powered Course
 
 ---
 
