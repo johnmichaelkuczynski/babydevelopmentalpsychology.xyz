@@ -1,24 +1,24 @@
-# 🔎 Developmental Psychology for Children
+# 🔎 Basic Developmental Psychology
 
-**A Friendly, One-Unit Intro to Developmental Psychology That Teaches, Tutors, and Proofs Itself — for Curious Students and Adults Alike**
+**A complete, one-unit introduction to developmental psychology that teaches, tutors, drills, and grades itself — built for serious learners entering the discipline.**
 
 ---
 
 ## 🧩 Overview
 
-Developmental Psychology for Children is a self-paced, single-user web course that delivers a friendly, plain-language introduction to developmental psychology — taught, tutored, drilled, and graded entirely by AI, with built-in academic-integrity enforcement. No math, coding, statistics, or other technical skills required.
+Basic Developmental Psychology is a self-paced, single-user web course that delivers a rigorous introduction to developmental psychology — taught, tutored, drilled, and graded entirely by AI, with built-in academic-integrity enforcement. It is built for adults coming to the field for the first time: graduate students, researchers, and working professionals who need a substantive foothold in a new discipline.
 
-It turns the everyday human habit of *asking how people grow into who they are* into one product: read each lesson at the depth you want, ask a tutor scoped to the exact section you're on, drill questions whose difficulty adapts to you in real time, and submit homework, a unit test, and a final that are AI-graded with feedback and screened for AI-generated answers. The material is kept tasteful and age-appropriate — it explains the science of how people change across the whole lifespan, from before birth to old age.
+It turns the enduring question of *how people grow into who they are* into one product: read each lesson at the depth you want, ask a tutor scoped to the exact section you're on, drill questions whose difficulty adapts to you in real time, and submit homework, a unit test, and a final that are AI-graded with feedback and screened for AI-generated answers. The material is substantive and rigorous — it explains the science of how people change across the whole lifespan, from before birth to old age.
 
-The curriculum is organized into **one unit and 8 topics**: 1.1 what developmental psychology is; 1.2 nature vs. nurture; 1.3 the infant mind; 1.4 attachment; 1.5 how children think (Piaget); 1.6 language development; 1.7 the teenage brain; and 1.8 aging and the lifespan.
+The curriculum is organized into **one unit and 8 topics**: 1.1 what developmental psychology is; 1.2 nature vs. nurture; 1.3 the infant mind; 1.4 attachment; 1.5 how thinking develops (Piaget); 1.6 language development; 1.7 the adolescent brain; and 1.8 aging and the lifespan.
 
-Designed for **middle schoolers, curious adults wanting brief but meaningful exposure, instructors evaluating AI-taught coursework, and researchers studying AI academic integrity**, Developmental Psychology for Children pairs a real curriculum with two layers of AI-authorship detection — surfacing not just *whether* the writing looks AI-generated, but whether the *act of producing it* did.
+Designed for **graduate students, researchers, instructors evaluating AI-taught coursework, and academics studying AI integrity**, Basic Developmental Psychology pairs a real curriculum with two layers of AI-authorship detection — surfacing not just *whether* the writing looks AI-generated, but whether the *act of producing it* did.
 
 ---
 
 ## 🧠 What It Does
 
-- **One-Unit Structured Curriculum** — A complete plain-language intro syllabus across 8 topics. The unit ships with lessons, two homework sets, a timed unit test, and a cumulative final exam.
+- **One-Unit Structured Curriculum** — A complete intro syllabus across 8 topics. The unit ships with lessons, two homework sets, a timed unit test, and a cumulative final exam.
 - **Three-Depth Lessons** — Every lesson is available at **Short / Medium / Long** length, AI-rewritten while preserving the same examples and learning objectives. Skim the concept, expand it on demand, or read the deeper cut.
 - **Section-Scoped AI Tutor** — Ask a question about the paragraph you're reading and the answer streams back token-by-token, grounded in that exact lecture section. Suggested starter questions are pre-generated per lecture.
 - **Adaptive Topic Practice** — Generated problem sets that move difficulty up after a streak and down after a miss, with explanations on every answer. Per-session difficulty persists, so each drill picks up where the last one left off.
@@ -50,7 +50,7 @@ Designed for **middle schoolers, curious adults wanting brief but meaningful exp
 
 ## 📊 Designed For
 
-- **Middle Schoolers & Curious Adults:** A complete, plain-language intro to developmental psychology delivered with on-demand tutoring and adaptive practice — no instructor, math, or coding required.
+- **Adult learners new to the field:** A complete, rigorous introduction to developmental psychology delivered with on-demand tutoring and adaptive practice — for graduate students, researchers, and professionals entering the discipline.
 - **Instructors & Curriculum Designers:** A working reference for what AI-taught, AI-graded, AI-detection-screened coursework actually looks like end-to-end.
 - **Academic-Integrity Researchers:** A live testbed for layered AI-authorship detection that combines text-based classification with behavioral keystroke evidence.
 - **Product & Engineering Teams:** A reference implementation of contract-first full-stack architecture, streaming AI UX, and self-diagnostic operator tooling in a Replit pnpm monorepo.
@@ -59,14 +59,15 @@ Designed for **middle schoolers, curious adults wanting brief but meaningful exp
 
 ## 💡 Core Idea
 
-Developmental Psychology for Children reframes an AI-taught course as a *closed accountability loop*.
+Basic Developmental Psychology reframes an AI-taught course as a *closed accountability loop*.
 
 It doesn't just teach the material and grade the homework — it **teaches**, **tutors**, **drills**, **grades**, **detects misuse**, and **proves the whole pipeline still works** with a single click. The result is a self-paced course that students can actually trust to be fair, and that instructors can actually trust to be honest.
 
-**Developmental Psychology for Children — where the curriculum, the tutor, the grader, and the integrity check all live in one room.**
+**Basic Developmental Psychology — where the curriculum, the tutor, the grader, and the integrity check all live in one room.**
 
 ---
 
 ## 👤 User preferences
 
 - The user prefers to **convert the existing app in place** (e.g. replacing the prior course content/branding with the new subject) rather than create a standalone clone — keep all functionality and format intact when making content/branding changes.
+- **Naming rule:** the course must be positioned for serious adults (often graduate students or professors entering a new discipline), never as a children's product. If a name is of the form "X for Children", rename it to "Basic X". Never use the words "baby"/"babies" anywhere, and never use "children" in any video or YouTube description. Avoid infantilizing marketing ("no math", "no coding", "kid-friendly", "age-appropriate", "middle schoolers", "grown-ups", "friendly"); lead with the depth and wealth of the content instead.

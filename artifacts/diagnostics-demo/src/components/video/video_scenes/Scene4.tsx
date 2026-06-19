@@ -60,7 +60,7 @@ export function Scene4() {
         transition={{ duration: 0.8 }}
       >
         <div className="w-[1px] h-12 bg-white/20 mx-auto mb-6" />
-        <h1 className="text-[3vw] font-display text-white tracking-widest uppercase mb-2">Developmental Psychology</h1>
+        <h1 className="text-[3vw] font-display text-white tracking-widest uppercase mb-2">Basic Developmental Psychology</h1>
         <p className="text-[1.2vw] text-[var(--color-accent)] italic font-display text-2xl tracking-widest">How we become who we are.</p>
       </motion.div>
     </motion.div>

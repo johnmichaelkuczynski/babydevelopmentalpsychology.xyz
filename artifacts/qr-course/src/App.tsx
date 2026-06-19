@@ -235,13 +235,13 @@ function ClerkProviderWithRoutes() {
         signIn: {
           start: {
             title: "Welcome back",
-            subtitle: "Sign in to continue your Developmental Psychology for Children course",
+            subtitle: "Sign in to continue your Basic Developmental Psychology course",
           },
         },
         signUp: {
           start: {
             title: "Create your account",
-            subtitle: "Start your developmental psychology journey with Developmental Psychology for Children",
+            subtitle: "Start your developmental psychology journey with Basic Developmental Psychology",
           },
         },
       }}

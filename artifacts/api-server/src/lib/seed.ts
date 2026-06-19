@@ -14,7 +14,7 @@ import { logger } from "./logger";
 // the value stored in seed_meta; a mismatch forces a full re-seed, so content
 // edits self-heal in every environment (including a republished production)
 // without a manual database wipe.
-const SEED_CONTENT_VERSION = "2026-06-15-developmental-psychology-for-children-v1";
+const SEED_CONTENT_VERSION = "2026-06-16-basic-developmental-psychology-v2";
 
 type SeedTopic = {
   slug: string;
@@ -26,7 +26,7 @@ type SeedTopic = {
 };
 
 const TOPICS: SeedTopic[] = [
-  // Unit 1 — Developmental Psychology for Everyone
+  // Unit 1 — Basic Developmental Psychology
   {
     slug: "what-developmental-psychology-is",
     title: "What developmental psychology is",
@@ -35,11 +35,11 @@ const TOPICS: SeedTopic[] = [
     lectureTitle: "1.1 What developmental psychology is (growth, stages, and the whole lifespan)",
     body: `# What developmental psychology is
 
-A baby who can't hold up her head becomes a toddler who runs, then a teenager who argues about everything, then an adult, then an old person looking back on it all. That whole journey is the subject of **developmental psychology** — the careful study of how and why people change across their entire lives.
+An infant who can't hold up her head becomes a toddler who runs, then a teenager who argues about everything, then an adult, then an old person looking back on it all. That whole journey is the subject of **developmental psychology** — the careful study of how and why people change across their entire lives.
 
 ## A science of change across life
 
-Developmental psychology is a science, which means it doesn't run on cute stories or "common sense" about kids. It uses evidence — careful observation, experiments, and studies that follow the same people for years — to ask things like: *when* do babies start to understand the world, *how* does thinking grow more powerful, and *why* do teenagers take risks. The goal is to describe what really changes, and to explain what drives those changes.
+Developmental psychology is a science, which means it doesn't run on cute stories or "common sense" about kids. It uses evidence — careful observation, experiments, and studies that follow the same people for years — to ask things like: *when* do infants start to understand the world, *how* does thinking grow more powerful, and *why* do teenagers take risks. The goal is to describe what really changes, and to explain what drives those changes.
 
 ## Stages or smooth growth?
 
@@ -47,7 +47,7 @@ One of the field's oldest questions is whether we change in **stages** — sudde
 
 ## Three kinds of growth at once
 
-To keep things clear, developmental psychologists watch three areas at the same time: **physical** growth (the body and brain), **cognitive** growth (thinking, memory, and language), and **social-emotional** growth (feelings and relationships). These are tangled together — a baby who can finally crawl (physical) suddenly explores more, learns more (cognitive), and bumps into new rules from parents (social). Real development is all three braided into one rope.
+To keep things clear, developmental psychologists watch three areas at the same time: **physical** growth (the body and brain), **cognitive** growth (thinking, memory, and language), and **social-emotional** growth (feelings and relationships). These are tangled together — an infant who can finally crawl (physical) suddenly explores more, learns more (cognitive), and bumps into new rules from parents (social). Real development is all three braided into one rope.
 
 ## Why this matters
 
@@ -55,7 +55,7 @@ This isn't just for scientists. The same ideas shape how we raise children, desi
 
 ## In the real world
 
-Some of the most powerful evidence comes from **longitudinal studies** — projects that follow the very same people for decades. In New Zealand, researchers tracked over a thousand babies born in the same town from birth into middle age, measuring them again and again. That patient, year-after-year watching revealed how early traits, family life, and luck weave together over a lifetime — something no single snapshot of a person could ever show. It's a reminder that development is a story, and you have to watch the whole thing to understand it.`,
+Some of the most powerful evidence comes from **longitudinal studies** — projects that follow the very same people for decades. In New Zealand, researchers tracked over a thousand infants born in the same town from birth into middle age, measuring them again and again. That patient, year-after-year watching revealed how early traits, family life, and luck weave together over a lifetime — something no single snapshot of a person could ever show. It's a reminder that development is a story, and you have to watch the whole thing to understand it.`,
   },
   {
     slug: "nature-vs-nurture",
@@ -77,59 +77,59 @@ A better way to think about it: your genes often set a **range** of possibilitie
 
 ## They don't just add — they interact
 
-The deepest idea is that nature and nurture don't sit in separate boxes; they **interact.** A naturally bold, active baby pulls different reactions out of the world than a quiet, cautious one — so the same parents end up creating different environments for each child. Genes shape the experiences you have, and experiences can even change how genes get used. Asking "how much is nature and how much is nurture?" is a bit like asking whether a song is more about the notes or the playing.
+The deepest idea is that nature and nurture don't sit in separate boxes; they **interact.** A naturally bold, active infant pulls different reactions out of the world than a quiet, cautious one — so the same parents end up creating different environments for each child. Genes shape the experiences you have, and experiences can even change how genes get used. Asking "how much is nature and how much is nurture?" is a bit like asking whether a song is more about the notes or the playing.
 
 ## Why the either/or is dangerous
 
-Picking a side has real costs. Believe everything is "nature" and you start treating people's troubles as fixed and hopeless — why bother helping? Believe everything is "nurture" and you blame parents for every difference and ignore real inborn needs. The grown-up view — that the two always work together — keeps us both realistic about what's hard to change and hopeful about what isn't.
+Picking a side has real costs. Believe everything is "nature" and you start treating people's troubles as fixed and hopeless — why bother helping? Believe everything is "nurture" and you blame parents for every difference and ignore real inborn needs. The mature view — that the two always work together — keeps us both realistic about what's hard to change and hopeful about what isn't.
 
 ## In the real world
 
-There's a genetic condition called PKU where, because of a single faulty gene, the body can't handle a substance found in ordinary food — and the buildup once caused serious intellectual disability. It sounds like pure "nature," a fate written in the genes. But the harm only happens if the child *eats* that substance. Put the baby on a special diet — a change in **nurture** — and development proceeds normally. One faulty gene, one change in the environment, and the outcome flips completely. It's the whole nature-and-nurture lesson in a single story.`,
+There's a genetic condition called PKU where, because of a single faulty gene, the body can't handle a substance found in ordinary food — and the buildup once caused serious intellectual disability. It sounds like pure "nature," a fate written in the genes. But the harm only happens if the child *eats* that substance. Put the infant on a special diet — a change in **nurture** — and development proceeds normally. One faulty gene, one change in the environment, and the outcome flips completely. It's the whole nature-and-nurture lesson in a single story.`,
   },
   {
     slug: "the-infant-mind",
     title: "The infant mind",
     weekNumber: 1,
-    blurb: "Babies aren't blank, helpless blobs — they arrive already tuned to faces, voices, and the rules of the world.",
-    lectureTitle: "1.3 The infant mind (what babies know before they can speak)",
+    blurb: "Infants aren't blank, helpless blobs — they arrive already tuned to faces, voices, and the rules of the world.",
+    lectureTitle: "1.3 The infant mind (what infants know before they can speak)",
     body: `# The infant mind
 
-For a long time people assumed a newborn's mind was a "blooming, buzzing confusion" — a blank, helpless blob that knew nothing. That picture turned out to be spectacularly wrong. Modern research shows that babies arrive already prepared for the world, packed with preferences and expectations, long before they can say a single word.
+For a long time people assumed a newborn's mind was a "blooming, buzzing confusion" — a blank, helpless blob that knew nothing. That picture turned out to be spectacularly wrong. Modern research shows that infants arrive already prepared for the world, packed with preferences and expectations, long before they can say a single word.
 
 ## Born ready for people
 
-Within days of birth, babies already prefer some things over others — and most of those things are *people.* Newborns turn toward human faces more than scrambled patterns, prefer their own mother's voice to a stranger's, and like the rhythm of the language they heard in the womb. They aren't passive. From the start, a baby is built to seek out the faces and voices that will keep it alive and teach it everything. The "blank slate" was never blank.
+Within days of birth, infants already prefer some things over others — and most of those things are *people.* Newborns turn toward human faces more than scrambled patterns, prefer their own mother's voice to a stranger's, and like the rhythm of the language they heard in the womb. They aren't passive. From the start, an infant is built to seek out the faces and voices that will keep it alive and teach it everything. The "blank slate" was never blank.
 
-## How do you study a baby who can't talk?
+## How do you study an infant who can't talk?
 
-Here's the clever problem: you can't *ask* a baby what it knows. So researchers learned to read the two things babies control — **where they look** and **how long.** Babies stare longer at things that are new or surprising and look away from things that have become boring. By carefully measuring those gazes, scientists can ask a baby "does this surprise you?" without a single word — and the baby answers with its eyes.
+Here's the clever problem: you can't *ask* an infant what it knows. So researchers learned to read the two things infants control — **where they look** and **how long.** Infants stare longer at things that are new or surprising and look away from things that have become boring. By carefully measuring those gazes, scientists can ask an infant "does this surprise you?" without a single word — and the infant answers with its eyes.
 
 ## The surprise test
 
-Use that trick and something amazing appears. Show a baby an event that breaks the rules of the physical world — an object that seems to pass through a solid wall, or two toys that become three when nothing was added — and the baby **stares longer**, as if to say "wait, that's not possible." That extra staring is evidence that even young infants already expect objects to be solid, to keep existing when hidden, and to add up correctly. They have a rough physics in their heads before they can crawl.
+Use that trick and something amazing appears. Show an infant an event that breaks the rules of the physical world — an object that seems to pass through a solid wall, or two toys that become three when nothing was added — and the infant **stares longer**, as if to say "wait, that's not possible." That extra staring is evidence that even young infants already expect objects to be solid, to keep existing when hidden, and to add up correctly. They have a rough physics in their heads before they can crawl.
 
 ## Out of sight, not gone
 
-One famous milestone is **object permanence** — understanding that a thing still exists even when you can't see it. Very young babies act as if a hidden toy has simply vanished; a bit later, they'll search for it under a blanket. For decades people thought this understanding arrived slowly and late. The looking-time studies suggest babies grasp it earlier than they can *show* with their clumsy hands — knowing and doing don't always arrive together.
+One famous milestone is **object permanence** — understanding that a thing still exists even when you can't see it. Very young infants act as if a hidden toy has simply vanished; a bit later, they'll search for it under a blanket. For decades people thought this understanding arrived slowly and late. The looking-time studies suggest infants grasp it earlier than they can *show* with their clumsy hands — knowing and doing don't always arrive together.
 
 ## In the real world
 
-In one elegant study, researchers showed babies a simple "math" scene: one doll placed behind a screen, then a second doll added behind it. When the screen dropped to reveal only *one* doll — an impossible result — the babies stared much longer than when two dolls appeared. Months before they could speak or count, they expected one plus one to make two, and were startled when it didn't. The infant mind, it turns out, is already quietly keeping track of the world.`,
+In one elegant study, researchers showed infants a simple "math" scene: one doll placed behind a screen, then a second doll added behind it. When the screen dropped to reveal only *one* doll — an impossible result — the infants stared much longer than when two dolls appeared. Months before they could speak or count, they expected one plus one to make two, and were startled when it didn't. The infant mind, it turns out, is already quietly keeping track of the world.`,
   },
   {
     slug: "attachment",
     title: "Attachment",
     weekNumber: 1,
-    blurb: "The bond between a baby and its caregiver isn't just sweet — it's a survival system that shapes how we relate for life.",
+    blurb: "The bond between an infant and its caregiver isn't just sweet — it's a survival system that shapes how we relate for life.",
     lectureTitle: "1.4 Attachment (why the first bond shapes everything)",
     body: `# Attachment
 
-Watch a one-year-old in a new place and you'll see it: she explores, then glances back to make sure her caregiver is still there, then explores a little further. That invisible thread between a baby and the person who cares for it is called **attachment**, and studying it changed how the whole world thinks about raising children.
+Watch a one-year-old in a new place and you'll see it: she explores, then glances back to make sure her caregiver is still there, then explores a little further. That invisible thread between an infant and the person who cares for it is called **attachment**, and studying it changed how the whole world thinks about raising children.
 
 ## More than feeding
 
-People used to assume babies love their caregivers simply because they're the source of food — "cupboard love." Then experiments with baby monkeys shattered that idea. Given a choice between a bare wire "mother" that provided milk and a soft cloth "mother" that provided none, the frightened babies clung to the soft one and ran to it for comfort. **Contact and comfort**, not just food, turned out to be the heart of the bond. We are wired to seek closeness, not just calories.
+People used to assume infants love their caregivers simply because they're the source of food — "cupboard love." Then experiments with infant monkeys shattered that idea. Given a choice between a bare wire "mother" that provided milk and a soft cloth "mother" that provided none, the frightened infants clung to the soft one and ran to it for comfort. **Contact and comfort**, not just food, turned out to be the heart of the bond. We are wired to seek closeness, not just calories.
 
 ## A secure base
 
@@ -137,7 +137,7 @@ A good attachment works like a **secure base.** Because the caregiver is reliabl
 
 ## Measuring the bond
 
-To study attachment, researchers designed a careful little drama: a baby plays in a room, the caregiver briefly leaves, a stranger appears, and the caregiver returns. The key moment isn't the leaving — it's the **reunion.** A securely attached baby is upset when the caregiver goes but is comforted and soothed on return. Other babies show insecure patterns: some seem indifferent, others can't be calmed. Watching that reunion gives a surprisingly clear window into the relationship.
+To study attachment, researchers designed a careful little drama: an infant plays in a room, the caregiver briefly leaves, a stranger appears, and the caregiver returns. The key moment isn't the leaving — it's the **reunion.** A securely attached infant is upset when the caregiver goes but is comforted and soothed on return. Other infants show insecure patterns: some seem indifferent, others can't be calmed. Watching that reunion gives a surprisingly clear window into the relationship.
 
 ## Patterns, not destiny
 
@@ -145,7 +145,7 @@ These early patterns matter — secure attachment is linked to easier friendship
 
 ## In the real world
 
-The monkey study with the wire and cloth "mothers" is one of the most famous in all of psychology precisely because the result was so clear and so moving: comfort beat food, every time. Around the same time, careful observation of human babies separated from caregivers showed how deeply distressing that loss is — and how much steady, responsive care matters. Together, this work helped end the old advice to handle babies coldly "so they won't get spoiled," and replaced it with something kinder and truer: babies need warmth as surely as they need milk.`,
+The monkey study with the wire and cloth "mothers" is one of the most famous in all of psychology precisely because the result was so clear and so moving: comfort beat food, every time. Around the same time, careful observation of human infants separated from caregivers showed how deeply distressing that loss is — and how much steady, responsive care matters. Together, this work helped end the old advice to handle infants coldly "so they won't get spoiled," and replaced it with something kinder and truer: infants need warmth as surely as they need milk.`,
   },
   {
     slug: "how-children-think",
@@ -163,7 +163,7 @@ Piaget saw children as little scientists, constantly building and testing their 
 
 ## Four big stages
 
-Piaget described thinking as moving through four broad stages. In the **sensorimotor** stage, babies "think" through senses and actions — grabbing, mouthing, banging. In the **preoperational** stage, young children can use words and imagination but reason in ways that look strange to adults. In the **concrete operational** stage, school-age children get logical about real, concrete things. And in **formal operational** thinking, adolescents become able to reason about abstract ideas and "what ifs." The order, Piaget argued, is the same everywhere.
+Piaget described thinking as moving through four broad stages. In the **sensorimotor** stage, infants "think" through senses and actions — grabbing, mouthing, banging. In the **preoperational** stage, young children can use words and imagination but reason in ways that look strange to adults. In the **concrete operational** stage, school-age children get logical about real, concrete things. And in **formal operational** thinking, adolescents become able to reason about abstract ideas and "what ifs." The order, Piaget argued, is the same everywhere.
 
 ## Why a young child gets fooled
 
@@ -249,7 +249,7 @@ We end where most people assume development is already over: adulthood and old a
 
 ## Development never stops
 
-The whole point of a *lifespan* view is that change is never finished. Adults learn new skills, take on new roles, rebuild after setbacks, and rethink who they are well into old age. Some abilities fade, yes — but others ripen. Treating adulthood as a flat plateau or a long decline misses most of the human story. The same scientific curiosity we aimed at babies belongs on every decade of life.
+The whole point of a *lifespan* view is that change is never finished. Adults learn new skills, take on new roles, rebuild after setbacks, and rethink who they are well into old age. Some abilities fade, yes — but others ripen. Treating adulthood as a flat plateau or a long decline misses most of the human story. The same scientific curiosity we aimed at infants belongs on every decade of life.
 
 ## Losing some, gaining some
 
@@ -261,7 +261,7 @@ Here's a finding that startles almost everyone: older adults, on average, often 
 
 ## Tying the course together
 
-Look back across all eight topics and one thread runs through them: **resist the simple story.** Development isn't pure nature or pure nurture; babies aren't blank; children don't think like little adults; teenagers aren't just badly behaved; and old age isn't just decline. Again and again, the careful evidence replaces a tidy myth with something richer, stranger, and more humane. That habit — looking past the obvious story to what's really happening — is the most valuable thing to carry out of this course.
+Look back across all eight topics and one thread runs through them: **resist the simple story.** Development isn't pure nature or pure nurture; infants aren't blank; children don't think like little adults; teenagers aren't just badly behaved; and old age isn't just decline. Again and again, the careful evidence replaces a tidy myth with something richer, stranger, and more humane. That habit — looking past the obvious story to what's really happening — is the most valuable thing to carry out of this course.
 
 ## The biggest questions stay open
 
@@ -293,7 +293,7 @@ const ASSIGNMENTS: SeedAssignment[] = [
     isTimed: false,
     timeLimitMinutes: null,
     instructions:
-      "Untimed practice covering sections 1.1–1.4. Answer each question in a few sentences (about 3–5) in your own words. There's no need for any math — just explain your thinking clearly. One-word answers won't receive credit.",
+      "Untimed practice covering sections 1.1–1.4. Answer each question in a few sentences (about 3–5) in your own words. Explain your thinking clearly. One-word answers won't receive credit.",
     problems: [
       {
         topicSlug: "what-developmental-psychology-is",
@@ -317,18 +317,18 @@ const ASSIGNMENTS: SeedAssignment[] = [
       {
         topicSlug: "the-infant-mind",
         prompt:
-          "Someone says, 'Newborn babies don't know anything — their minds are totally blank.' Use evidence about the infant mind to explain why this is wrong, and how we can even tell. (3–5 sentences.)",
+          "Someone says, 'Newborns don't know anything — their minds are totally blank.' Use evidence about the infant mind to explain why this is wrong, and how we can even tell. (3–5 sentences.)",
         correctAnswer:
-          "Babies aren't blank; they arrive already prepared for the world, preferring human faces, their mother's voice, and the rhythm of the language they heard in the womb. Even young infants seem to expect objects to be solid and to keep existing when hidden, and they're surprised when those rules are broken. We can tell because babies look longer at things that are new or surprising, so researchers measure where and how long they look to find out what surprises them — without needing a single word. That extra staring at 'impossible' events is the evidence that the infant mind already knows quite a lot.",
+          "Infants aren't blank; they arrive already prepared for the world, preferring human faces, their mother's voice, and the rhythm of the language they heard in the womb. Even young infants seem to expect objects to be solid and to keep existing when hidden, and they're surprised when those rules are broken. We can tell because infants look longer at things that are new or surprising, so researchers measure where and how long they look to find out what surprises them — without needing a single word. That extra staring at 'impossible' events is the evidence that the infant mind already knows quite a lot.",
         explanation:
-          "Full credit: states babies arrive prepared (face/voice preferences, early physical expectations) and explains the looking-time/surprise method as how we know, contradicting the 'blank' claim.",
+          "Full credit: states infants arrive prepared (face/voice preferences, early physical expectations) and explains the looking-time/surprise method as how we know, contradicting the 'blank' claim.",
       },
       {
         topicSlug: "attachment",
         prompt:
-          "A relative insists, 'Babies only love whoever feeds them — it's all about the food.' Using what attachment research shows, explain two things this gets wrong. (3–5 sentences.)",
+          "A relative insists, 'Infants only love whoever feeds them — it's all about the food.' Using what attachment research shows, explain two things this gets wrong. (3–5 sentences.)",
         correctAnswer:
-          "First, attachment is about contact and comfort, not just food: given a choice, frightened baby monkeys clung to a soft, cloth 'mother' that gave no milk rather than a bare wire one that did, showing comfort matters more than calories. Second, the bond isn't just sweet dependence — it works as a secure base that actually lets a child explore, because feeling safe gives them the confidence to wander off and learn. So a caregiver provides safety and comfort, which is the heart of the bond, not merely meals. 'It's all about the food' misses both the comfort and the way attachment supports independence.",
+          "First, attachment is about contact and comfort, not just food: given a choice, frightened infant monkeys clung to a soft, cloth 'mother' that gave no milk rather than a bare wire one that did, showing comfort matters more than calories. Second, the bond isn't just sweet dependence — it works as a secure base that actually lets a child explore, because feeling safe gives them the confidence to wander off and learn. So a caregiver provides safety and comfort, which is the heart of the bond, not merely meals. 'It's all about the food' misses both the comfort and the way attachment supports independence.",
         explanation:
           "Full credit: corrects (1) comfort/contact matters more than food (e.g. the cloth vs. wire 'mother') and (2) attachment is a secure base that supports exploration/independence, not just feeding.",
       },
@@ -341,7 +341,7 @@ const ASSIGNMENTS: SeedAssignment[] = [
     isTimed: false,
     timeLimitMinutes: null,
     instructions:
-      "Untimed practice covering sections 1.5–1.8. Answer each question in a few sentences (about 3–5) in your own words. No math is required — explain your reasoning. One-word answers won't receive credit.",
+      "Untimed practice covering sections 1.5–1.8. Answer each question in a few sentences (about 3–5) in your own words. Explain your reasoning. One-word answers won't receive credit.",
     problems: [
       {
         topicSlug: "how-children-think",
@@ -384,12 +384,12 @@ const ASSIGNMENTS: SeedAssignment[] = [
   },
   {
     kind: "test",
-    title: "Unit Test — Developmental Psychology for Everyone",
+    title: "Unit Test — Basic Developmental Psychology",
     weekNumber: 1,
     isTimed: true,
     timeLimitMinutes: 30,
     instructions:
-      "Timed. 30 minutes. Covers sections 1.1–1.8. Answer each question in a few sentences (about 4–6) in your own words. No math is required. Pasting is disabled; keystrokes are screened for AI use.",
+      "Timed. 30 minutes. Covers sections 1.1–1.8. Answer each question in a few sentences (about 4–6) in your own words. Pasting is disabled; keystrokes are screened for AI use.",
     problems: [
       {
         topicSlug: "what-developmental-psychology-is",
@@ -405,16 +405,16 @@ const ASSIGNMENTS: SeedAssignment[] = [
         prompt:
           "Explain why developmental psychology rejects the 'nature vs. nurture' question as an either/or, using the ideas that genes set a range and that nature and nurture interact. (4–6 sentences.)",
         correctAnswer:
-          "The either/or is wrong because nature and nurture always work together rather than competing. Genes often set a range of possibilities, and the environment decides where inside that range a person lands — like good genes setting how tall you could grow while nutrition determines how tall you actually become. The deeper point is that the two interact: an inborn temperament shapes the experiences a child has, so a bold baby and a cautious baby pull different environments out of the same parents, and experiences can even change how genes get used. That's why asking 'how much is nature and how much is nurture' is like asking whether a song is more the notes or the playing. Picking a side also causes harm — pure 'nature' breeds hopelessness, pure 'nurture' breeds blame — while the grown-up view stays both realistic and hopeful.",
+          "The either/or is wrong because nature and nurture always work together rather than competing. Genes often set a range of possibilities, and the environment decides where inside that range a person lands — like good genes setting how tall you could grow while nutrition determines how tall you actually become. The deeper point is that the two interact: an inborn temperament shapes the experiences a child has, so a bold infant and a cautious infant pull different environments out of the same parents, and experiences can even change how genes get used. That's why asking 'how much is nature and how much is nurture' is like asking whether a song is more the notes or the playing. Picking a side also causes harm — pure 'nature' breeds hopelessness, pure 'nurture' breeds blame — while the mature view stays both realistic and hopeful.",
         explanation:
           "Full credit: explains nature and nurture interact (genes set a range, environment shapes within it; temperament shapes experiences; experiences affect gene use), so the either/or framing fails.",
       },
       {
         topicSlug: "the-infant-mind",
         prompt:
-          "Describe what babies seem to know before they can speak, and explain how researchers can study a baby's mind using looking time and 'surprise.' (4–6 sentences.)",
+          "Describe what infants seem to know before they can speak, and explain how researchers can study an infant's mind using looking time and 'surprise.' (4–6 sentences.)",
         correctAnswer:
-          "Babies are not blank slates; they arrive already prepared for people and the world, preferring human faces, their mother's voice, and the rhythm of their native language. Even young infants appear to expect objects to be solid and to keep existing when hidden, and some studies suggest they expect simple amounts to add up correctly. Researchers can't ask a baby what it knows, so they read the two things babies control: where they look and for how long. Babies stare longer at events that are new or surprising and look away from boring ones, so showing a baby an 'impossible' event — an object passing through a wall, or one plus one appearing to make one — and measuring the extra staring reveals what the baby expected. That longer look at rule-breaking events is the evidence that the infant mind already tracks the world.",
+          "Infants are not blank slates; they arrive already prepared for people and the world, preferring human faces, their mother's voice, and the rhythm of their native language. Even young infants appear to expect objects to be solid and to keep existing when hidden, and some studies suggest they expect simple amounts to add up correctly. Researchers can't ask an infant what it knows, so they read the two things infants control: where they look and for how long. Infants stare longer at events that are new or surprising and look away from boring ones, so showing an infant an 'impossible' event — an object passing through a wall, or one plus one appearing to make one — and measuring the extra staring reveals what the infant expected. That longer look at rule-breaking events is the evidence that the infant mind already tracks the world.",
         explanation:
           "Full credit: describes infant knowledge (face/voice preferences, expecting solidity/permanence) and explains the looking-time/violation-of-expectation method (longer looking at surprising/impossible events) as how we know.",
       },
@@ -423,7 +423,7 @@ const ASSIGNMENTS: SeedAssignment[] = [
         prompt:
           "Explain what attachment is, why comfort matters more than food, and how the 'secure base' idea connects attachment to a child's independence. (4–6 sentences.)",
         correctAnswer:
-          "Attachment is the strong emotional bond between a baby and the person who cares for it — a kind of survival system that shapes how we relate to others. It's not just about feeding: experiments with baby monkeys showed that frightened babies clung to a soft, cloth 'mother' that gave no milk rather than a bare wire one that did, so contact and comfort, not just calories, are the heart of the bond. A good attachment works as a 'secure base': because the caregiver is reliable, the child feels safe enough to explore, try new things, and learn, knowing there's a safe spot to return to. That's why attachment isn't the opposite of independence — it's the launchpad for it, since the most confident explorers usually feel most certain someone has their back. These early patterns matter for later life but are influences and odds, not a switch that fixes a child's whole future.",
+          "Attachment is the strong emotional bond between an infant and the person who cares for it — a kind of survival system that shapes how we relate to others. It's not just about feeding: experiments with infant monkeys showed that frightened infants clung to a soft, cloth 'mother' that gave no milk rather than a bare wire one that did, so contact and comfort, not just calories, are the heart of the bond. A good attachment works as a 'secure base': because the caregiver is reliable, the child feels safe enough to explore, try new things, and learn, knowing there's a safe spot to return to. That's why attachment isn't the opposite of independence — it's the launchpad for it, since the most confident explorers usually feel most certain someone has their back. These early patterns matter for later life but are influences and odds, not a switch that fixes a child's whole future.",
         explanation:
           "Full credit: defines attachment, explains comfort/contact over food (cloth vs. wire 'mother'), and the secure-base idea linking attachment to confident exploration/independence.",
       },
@@ -467,19 +467,19 @@ const ASSIGNMENTS: SeedAssignment[] = [
   },
   {
     kind: "final",
-    title: "Final — Developmental Psychology for Everyone",
+    title: "Final — Basic Developmental Psychology",
     weekNumber: 1,
     isTimed: true,
     timeLimitMinutes: 45,
     instructions:
-      "Timed cumulative final. 45 minutes. Covers the whole course (sections 1.1–1.8). Answer each question in a paragraph (about 5–7 sentences) in your own words. No math is required. Pasting is disabled; keystrokes are screened for AI use.",
+      "Timed cumulative final. 45 minutes. Covers the whole course (sections 1.1–1.8). Answer each question in a paragraph (about 5–7 sentences) in your own words. Pasting is disabled; keystrokes are screened for AI use.",
     problems: [
       {
         topicSlug: "aging-and-lifespan",
         prompt:
           "Using ideas from across the whole course, argue that one habit of mind — 'resist the simple story' — runs through developmental psychology. Show how it applies to at least three different topics (for example: nature vs. nurture, the 'blank' newborn, love being 'just about food,' children as little adults, the teenage brain, or aging as pure decline). (5–7 sentences.)",
         correctAnswer:
-          "The thread running through the whole course is to resist the simple, tidy story and replace it with careful, evidence-based thinking. Nature vs. nurture isn't an either/or: genes set a range and the environment shapes it, and the two constantly interact, so 'all genes' and 'all upbringing' are both wrong. Newborns aren't blank either — looking-time studies show babies already prefer faces and voices and expect objects to be solid, surprising us with how much they know. Children don't think like little adults; conservation and egocentrism show their minds follow genuinely different rules that grow in stages. The same caution undoes the myths that love is just about food (comfort beats calories), that teenagers are simply badly behaved (their brains are mid-renovation), and that old age is pure decline (real gains and even greater well-being appear). That shared habit — looking past the obvious story to what's really happening — is harder than believing a neat myth, but it's what makes the field both honest and humane.",
+          "The thread running through the whole course is to resist the simple, tidy story and replace it with careful, evidence-based thinking. Nature vs. nurture isn't an either/or: genes set a range and the environment shapes it, and the two constantly interact, so 'all genes' and 'all upbringing' are both wrong. Newborns aren't blank either — looking-time studies show infants already prefer faces and voices and expect objects to be solid, surprising us with how much they know. Children don't think like little adults; conservation and egocentrism show their minds follow genuinely different rules that grow in stages. The same caution undoes the myths that love is just about food (comfort beats calories), that teenagers are simply badly behaved (their brains are mid-renovation), and that old age is pure decline (real gains and even greater well-being appear). That shared habit — looking past the obvious story to what's really happening — is harder than believing a neat myth, but it's what makes the field both honest and humane.",
         explanation:
           "Full credit: states the unifying habit (reject simple stories for evidence) and applies it correctly to at least three distinct course topics with accurate detail.",
       },
@@ -488,16 +488,16 @@ const ASSIGNMENTS: SeedAssignment[] = [
         prompt:
           "Someone insists, 'People are just born the way they are — genes decide everything.' Using evidence and ideas from the course, argue why development is better understood as nature and nurture working together. Use at least one concrete example. (5–7 sentences.)",
         correctAnswer:
-          "The 'genes decide everything' view assumes a fixed blueprint, but the evidence shows nature and nurture always work together. Genes typically set a range of possibilities while the environment decides where inside it a person lands — good height genes still need good nutrition to be realized, and a child born to be a strong reader needs a world full of books and talk to get there. The two also interact: an inborn temperament shapes the experiences a child has, so a bold baby and a cautious one draw different environments out of the very same parents, and experiences can even change how genes are used. A striking example is the genetic condition PKU, where a single faulty gene once caused serious intellectual disability — yet the harm only happens if the child eats a certain substance, so a simple change in diet (nurture) lets development proceed normally. One gene, one environmental change, and the whole outcome flips. That's why 'genes decide everything' mistakes a starting point for a finished story.",
+          "The 'genes decide everything' view assumes a fixed blueprint, but the evidence shows nature and nurture always work together. Genes typically set a range of possibilities while the environment decides where inside it a person lands — good height genes still need good nutrition to be realized, and a child born to be a strong reader needs a world full of books and talk to get there. The two also interact: an inborn temperament shapes the experiences a child has, so a bold infant and a cautious one draw different environments out of the very same parents, and experiences can even change how genes are used. A striking example is the genetic condition PKU, where a single faulty gene once caused serious intellectual disability — yet the harm only happens if the child eats a certain substance, so a simple change in diet (nurture) lets development proceed normally. One gene, one environmental change, and the whole outcome flips. That's why 'genes decide everything' mistakes a starting point for a finished story.",
         explanation:
           "Full credit: rejects pure genetic determinism, explains genes-set-a-range plus interaction, and supports it with a concrete example (e.g. PKU diet, or height/reading) showing environment changes the outcome.",
       },
       {
         topicSlug: "attachment",
         prompt:
-          "A parent worries that comforting their baby too much will 'spoil' it and make it clingy and dependent. Using what the course shows about attachment, explain why this worry gets the science backwards. Use a concrete example or study. (5–7 sentences.)",
+          "A parent worries that comforting their infant too much will 'spoil' it and make it clingy and dependent. Using what the course shows about attachment, explain why this worry gets the science backwards. Use a concrete example or study. (5–7 sentences.)",
         correctAnswer:
-          "This worry gets the science backwards, because warm, responsive care doesn't create a clingy child — it builds the security that makes a child brave. Attachment is the strong bond between a baby and caregiver, and research shows it rests on contact and comfort, not just feeding: frightened baby monkeys clung to a soft, cloth 'mother' that gave no milk rather than a bare wire one that did, proving comfort matters more than calories. A good attachment works as a 'secure base' — because the caregiver is reliable, the child feels safe enough to explore, try new things, and learn, knowing there's a safe spot to return to. So attachment isn't the opposite of independence; it's the launchpad for it, and the most confident explorers tend to be the ones most sure someone has their back. This is exactly why the old advice to handle babies coldly 'so they won't be spoiled' was abandoned in favor of warmth. Comforting a baby builds confidence, not dependence.",
+          "This worry gets the science backwards, because warm, responsive care doesn't create a clingy child — it builds the security that makes a child brave. Attachment is the strong bond between an infant and caregiver, and research shows it rests on contact and comfort, not just feeding: frightened infant monkeys clung to a soft, cloth 'mother' that gave no milk rather than a bare wire one that did, proving comfort matters more than calories. A good attachment works as a 'secure base' — because the caregiver is reliable, the child feels safe enough to explore, try new things, and learn, knowing there's a safe spot to return to. So attachment isn't the opposite of independence; it's the launchpad for it, and the most confident explorers tend to be the ones most sure someone has their back. This is exactly why the old advice to handle infants coldly 'so they won't be spoiled' was abandoned in favor of warmth. Comforting an infant builds confidence, not dependence.",
         explanation:
           "Full credit: explains comfort/contact over food (cloth vs. wire 'mother') and the secure-base idea that responsive care supports exploration/independence, correcting the 'spoiling' myth, with a concrete example.",
       },
@@ -530,13 +530,13 @@ This short primer prepares you for the **Developmental Psychology** diagnostic. 
 
 ## It tests application, not memorization
 
-A diagnostic question gives you a small, concrete scene — a baby, a preschooler, a teenager, an aging adult — and asks what the course's ideas tell you about it. Knowing the word "object permanence" or "attachment" is not enough; the question wants you to recognize *when* you are looking at one and *why* it matters here.
+A diagnostic question gives you a small, concrete scene — an infant, a preschooler, a teenager, an aging adult — and asks what the course's ideas tell you about it. Knowing the word "object permanence" or "attachment" is not enough; the question wants you to recognize *when* you are looking at one and *why* it matters here.
 
 ## What the questions reward
 
-- **Naming the right idea** — match the situation to the concept that fits it: whether a behavior reflects nature, nurture, or both; what babies already know; how children think differently; how language is learned; why teenagers take risks; how aging brings gains as well as losses.
+- **Naming the right idea** — match the situation to the concept that fits it: whether a behavior reflects nature, nurture, or both; what infants already know; how children think differently; how language is learned; why teenagers take risks; how aging brings gains as well as losses.
 - **Using evidence from the scene** — point to the detail in the situation that supports your answer, rather than answering from a general impression.
-- **Avoiding the simple story** — the course replaces tidy myths with careful explanation. The best answers resist "it's all genes," "babies know nothing," or "it's all downhill," and stay grounded in the science.
+- **Avoiding the simple story** — the course replaces tidy myths with careful explanation. The best answers resist "it's all genes," "infants know nothing," or "it's all downhill," and stay grounded in the science.
 
 ## How to do this activity well
 
@@ -636,7 +636,7 @@ export async function seedReasoningPrimersIfMissing(): Promise<void> {
 }
 
 export async function seedIfEmpty(): Promise<void> {
-  // The course was migrated to the Developmental Psychology for Children
+  // The course was migrated to the Basic Developmental Psychology
   // syllabus. Detect the marker topic; if present and the content version
   // matches, the content is current and we skip. This makes the seed
   // self-healing across environments: a database that still holds older content
@@ -685,7 +685,7 @@ export async function seedIfEmpty(): Promise<void> {
     const row = (existing.rows[0] ?? {}) as { n?: number };
     if ((row.n ?? 0) > 0) {
       logger.warn(
-        "Seed: stale course content detected — replacing with the Developmental Psychology for Children curriculum",
+        "Seed: stale course content detected — replacing with the Basic Developmental Psychology curriculum",
       );
       await tx.execute(
         sql`TRUNCATE TABLE answers, attempts, practice_attempts, practice_problems, practice_sessions, problems, assignments, lectures, topics, diagnostic_responses, diagnostic_attempts, diagnostic_items, diagnostic_assessments RESTART IDENTITY CASCADE`,

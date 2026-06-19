@@ -26,7 +26,7 @@ export function Scene1() {
         transition={{ type: 'spring', stiffness: 300, damping: 25 }}
       >
         <div className="w-[1px] h-16 bg-[var(--color-accent)] mx-auto mb-6" />
-        <h2 className="text-[1.5vw] uppercase tracking-[0.3em] text-[var(--color-accent)] font-medium mb-4">Developmental Psychology</h2>
+        <h2 className="text-[1.5vw] uppercase tracking-[0.3em] text-[var(--color-accent)] font-medium mb-4">Basic Developmental Psychology</h2>
         <h1 className="text-[6vw] font-display text-[var(--color-text-primary)] leading-none italic font-semibold">
           Diagnostic<br />Assessments
         </h1>

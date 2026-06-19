@@ -45,11 +45,11 @@ const features = [
 const topics = [
   { n: "1.1", title: "What developmental psychology is" },
   { n: "1.2", title: "Nature vs. nurture" },
-  { n: "1.3", title: "The infant mind (what babies know before they can speak)" },
+  { n: "1.3", title: "The infant mind (what we know before we can speak)" },
   { n: "1.4", title: "Attachment (the first bond)" },
-  { n: "1.5", title: "How children think (Piaget)" },
+  { n: "1.5", title: "How thinking develops (Piaget)" },
   { n: "1.6", title: "Language development" },
-  { n: "1.7", title: "The teenage brain" },
+  { n: "1.7", title: "The adolescent brain" },
   { n: "1.8", title: "Aging and the lifespan" },
 ];
 
@@ -62,7 +62,7 @@ export default function Landing() {
             <Search className="w-4 h-4" />
           </div>
           <span className="font-serif font-semibold text-lg tracking-tight">
-            Developmental Psychology for Children
+            Basic Developmental Psychology
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -89,15 +89,15 @@ export default function Landing() {
         <section className="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium mb-6">
             <BarChart3 className="w-3.5 h-3.5" />
-            A friendly, one-unit intro to developmental psychology
+            A complete one-unit introduction to developmental psychology
           </div>
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary leading-tight mb-5">
-            How minds grow across a lifetime. Let's understand it together.
+            How the mind changes across a lifetime — studied rigorously.
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            A self-paced course that teaches, tutors, drills, and grades you —
-            developmental psychology in plain language, no math or coding required.
-            Perfect for curious students and grown-ups alike.
+            A self-paced course that teaches, tutors, drills, and grades you across a
+            full unit of developmental psychology — built for serious learners entering
+            the discipline, from graduate students to working professionals.
           </p>
           <div className="flex items-center justify-center gap-3">
             <Link href="/sign-up">
@@ -162,7 +162,7 @@ export default function Landing() {
       </main>
 
       <footer className="border-t border-border px-6 py-6 text-center text-sm text-muted-foreground">
-        Developmental Psychology for Children — where the curriculum, the tutor, the grader, and the
+        Basic Developmental Psychology — where the curriculum, the tutor, the grader, and the
         integrity check all live in one room.
       </footer>
     </div>

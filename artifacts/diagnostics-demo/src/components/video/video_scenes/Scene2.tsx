@@ -35,7 +35,7 @@ export function Scene2() {
           animate={phase >= 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-[1.8vw] font-display text-[var(--color-accent)] font-semibold mb-2">Developmental Psychology</h3>
+          <h3 className="text-[1.8vw] font-display text-[var(--color-accent)] font-semibold mb-2">Basic Developmental Psychology</h3>
           <p className="text-[1vw] text-[var(--color-text-secondary)] mb-6 uppercase tracking-wider font-semibold opacity-70">Subject Reasoning Checks</p>
           <div className="space-y-4">
             <div className="h-[2px] w-12 bg-[var(--color-accent)]" />

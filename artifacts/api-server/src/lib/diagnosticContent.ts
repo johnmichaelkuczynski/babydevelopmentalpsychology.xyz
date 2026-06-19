@@ -94,7 +94,7 @@ const SUBJECT_SPECS: Record<Phase, GenSpec> = {
     level:
       "Early course level: covers roughly the first third of the unit. Plain language, short realistic cases.",
     topicFocus:
-      "Topics 1.1-1.3: what developmental psychology is (lifelong change across physical, cognitive, and social-emotional domains); nature vs. nurture (genes set a range, environment shapes it, and the two interact rather than competing); and the infant mind (babies are not blank — they prefer faces and voices and already expect objects to be solid/permanent, studied via looking time and surprise).",
+      "Topics 1.1-1.3: what developmental psychology is (lifelong change across physical, cognitive, and social-emotional domains); nature vs. nurture (genes set a range, environment shapes it, and the two interact rather than competing); and the infant mind (infants are not blank — they prefer faces and voices and already expect objects to be solid/permanent, studied via looking time and surprise).",
   },
   twothirds: {
     level:
@@ -197,7 +197,7 @@ const SUBJECT_BEFORE: DiagItem[] = [
       "Which question is most central to what developmental psychology actually studies?",
     options: [
       "How and why people change across their lives, from before birth to old age",
-      "Which baby stroller is the cheapest to buy",
+      "Which infant stroller is the cheapest to buy",
       "How to design a more comfortable nursery chair",
       "Which childhood stories make the most dramatic movies",
     ],
@@ -211,10 +211,10 @@ const SUBJECT_THIRD: DiagItem[] = [
     prompt:
       "A newborn turns toward her mother's voice and stares longer at a human face than at a scrambled pattern. These behaviors are best understood as showing that:",
     options: [
-      "babies arrive already prepared for people, not as blank slates",
-      "the baby is simply bored",
+      "infants arrive already prepared for people, not as blank slates",
+      "the infant is simply bored",
       "newborns cannot tell anything apart",
-      "the baby dislikes faces",
+      "the infant dislikes faces",
     ],
     modelAnswer:
       "Newborns already prefer faces and familiar voices, showing the infant mind is prepared for people rather than blank.",
@@ -277,15 +277,15 @@ const SUBJECT_TWOTHIRDS: DiagItem[] = [
   },
   {
     prompt:
-      "A frightened baby monkey chooses to cling to a soft cloth 'mother' that gives no milk rather than a bare wire one that does. Why is that important for understanding attachment?",
+      "A frightened infant monkey chooses to cling to a soft cloth 'mother' that gives no milk rather than a bare wire one that does. Why is that important for understanding attachment?",
     options: [
       "It shows the bond rests on comfort and contact, not just on being fed",
-      "It proves babies don't need food at all",
+      "It proves infants don't need food at all",
       "It shows attachment is only about feeding",
-      "It means babies prefer whoever is nearest",
+      "It means infants prefer whoever is nearest",
     ],
     modelAnswer:
-      "Attachment rests on comfort and contact, not just food; the baby seeks the comforting figure even when it provides no milk.",
+      "Attachment rests on comfort and contact, not just food; the infant seeks the comforting figure even when it provides no milk.",
     skillArea: "analysis",
   },
 ];

@@ -28,7 +28,7 @@ export function Scene1() {
           animate={phase >= 1 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-          Inside the
+          Basic Developmental
         </motion.h1>
         
         <motion.div
@@ -37,7 +37,7 @@ export function Scene1() {
           animate={phase >= 2 ? { scale: 1, rotate: [-10, 5, 0] } : { scale: 0, rotate: -10 }}
           transition={{ type: 'spring', stiffness: 400, damping: 15 }}
         >
-          <span className="text-[5vw] font-black tracking-wide">GROWING MIND</span>
+          <span className="text-[5vw] font-black tracking-wide">PSYCHOLOGY</span>
         </motion.div>
       </div>
 

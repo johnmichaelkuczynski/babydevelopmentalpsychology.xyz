@@ -417,7 +417,7 @@ async function generateSubjectVariant(
     "Each has exactly four answer options with one clearly best, well-supported answer. " +
     "List the CORRECT option FIRST, followed by three plausible but worse distractors (an over-simple single-cause claim, an 'obvious'/sensational answer, or an irrelevant one). " +
     "Also write a one-sentence model answer explaining why the first option is best. " +
-    "Keep the subject matter tasteful and age-appropriate — never graphic or sensational. " +
+    "Keep the subject matter tasteful and professional — never graphic or sensational. " +
     `Difficulty: ${spec.level} ` +
     `Stay strictly within this scope: ${spec.topicFocus} ` +
     'Respond ONLY as JSON of the form {"items":[{"prompt":"short case ending in a question","options":["best","worse","worse","worse"],"modelAnswer":"why the first option is best"}]}.';

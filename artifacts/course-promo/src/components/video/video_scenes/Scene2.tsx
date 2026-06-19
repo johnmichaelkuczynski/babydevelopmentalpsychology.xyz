@@ -6,9 +6,9 @@ export function Scene2() {
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase(1), 500),   // "It's asking questions."
-      setTimeout(() => setPhase(2), 3000),  // "Noticing patterns."
-      setTimeout(() => setPhase(3), 5500),  // "Telling a story."
+      setTimeout(() => setPhase(1), 500),   // "Three depths per lesson."
+      setTimeout(() => setPhase(2), 3000),  // "Brief. Standard. In-depth."
+      setTimeout(() => setPhase(3), 5500),  // "A section-scoped AI tutor."
       setTimeout(() => setPhase(4), 7800),  // exit
     ];
     return () => timers.forEach(t => clearTimeout(t));
@@ -36,7 +36,7 @@ export function Scene2() {
           }
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-          <h2 className="text-[4vw] font-black text-secondary">Nature vs. nurture.</h2>
+          <h2 className="text-[4vw] font-black text-secondary">Three depths per lesson.</h2>
         </motion.div>
 
         {/* Phase 2: Noticing */}
@@ -50,7 +50,7 @@ export function Scene2() {
           }
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-          <h2 className="text-[4vw] font-black text-primary">The infant mind.</h2>
+          <h2 className="text-[4vw] font-black text-primary">Brief. Standard. In-depth.</h2>
           <div className="flex gap-2 mt-4">
             {[1, 2, 3].map(i => (
               <motion.div key={i} className="w-6 h-6 rounded-full bg-primary" 
@@ -71,7 +71,7 @@ export function Scene2() {
           }
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-          <h2 className="text-[4vw] font-black text-accent text-center">Attachment —<br/>the first bond.</h2>
+          <h2 className="text-[4vw] font-black text-accent text-center">A section-scoped<br/>AI tutor.</h2>
         </motion.div>
       </div>
     </motion.div>

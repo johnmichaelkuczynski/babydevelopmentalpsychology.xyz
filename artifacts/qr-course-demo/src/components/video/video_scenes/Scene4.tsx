@@ -75,7 +75,7 @@ export function Scene4({ setCursorPos, setIsClicking }: { setCursorPos: (pos: {x
     { topic: 'Nature vs. nurture', week: 'Unit 1', att: 1, acc: 1, stat: 'STRONG', statColor: 'text-emerald-700 bg-emerald-50' },
     { topic: 'The infant mind', week: 'Unit 1', att: 1, acc: 1, stat: 'STRONG', statColor: 'text-emerald-700 bg-emerald-50' },
     { topic: 'Attachment — the first bond', week: 'Unit 1', att: 0, acc: 0, stat: 'UNTESTED', statColor: 'text-muted-foreground bg-muted' },
-    { topic: 'How children think (Piaget)', week: 'Unit 1', att: 0, acc: 0, stat: 'UNTESTED', statColor: 'text-muted-foreground bg-muted' },
+    { topic: 'How thinking develops (Piaget)', week: 'Unit 1', att: 0, acc: 0, stat: 'UNTESTED', statColor: 'text-muted-foreground bg-muted' },
   ];
 
   return (

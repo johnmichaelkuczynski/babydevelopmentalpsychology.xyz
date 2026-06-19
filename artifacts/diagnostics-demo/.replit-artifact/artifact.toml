@@ -1,6 +1,6 @@
 kind = "video"
 previewPath = "/diagnostics-demo/"
-title = "Developmental Psychology Diagnostics Demo"
+title = "Basic Developmental Psychology — Diagnostics Demo"
 version = "1.0.0"
 id = "artifacts/diagnostics-demo"
 router = "path"

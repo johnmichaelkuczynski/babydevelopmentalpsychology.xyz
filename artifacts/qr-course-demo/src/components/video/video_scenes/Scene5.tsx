@@ -126,7 +126,7 @@ export function Scene5({ setCursorPos, setIsClicking }: { setCursorPos: (pos: {x
         <div className="bg-white border border-border rounded-xl shadow-sm overflow-hidden flex flex-col min-h-[400px]">
           <div className="p-8 flex-1 border-b border-border text-lg text-primary font-medium leading-relaxed">
             {phase >= 1 && phase < 4 && (
-              <StreamingText text="A baby cries whenever a parent leaves the room, but is happy when they return. Is this better explained by the baby's inborn nature or by what they've learned? Explain." delay={0} />
+              <StreamingText text="An infant cries whenever a parent leaves the room, but is happy when they return. Is this better explained by the infant's inborn nature or by what they've learned? Explain." delay={0} />
             )}
             {phase >= 4 && (
               <StreamingText text="Two siblings are raised in the same home, but grow up with very different personalities. Why can a shared upbringing still lead to different paths?" delay={0} />
@@ -174,7 +174,7 @@ export function Scene5({ setCursorPos, setIsClicking }: { setCursorPos: (pos: {x
                     <span>Correct!</span>
                   </div>
                   <div className="text-sm text-emerald-900 leading-relaxed">
-                    <StreamingText text="Correct! A shared home isn't the whole story. Different temperaments, experiences, and relationships shape siblings in different ways — which is why children from the same household can grow up so differently. That's nature and nurture together." delay={0} />
+                    <StreamingText text="Correct! A shared home isn't the whole story. Different temperaments, experiences, and relationships shape siblings in different ways — which is why people from the same household can grow up so differently. That's nature and nurture together." delay={0} />
                   </div>
                 </motion.div>
               )}

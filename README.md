@@ -1,14 +1,14 @@
-# 🔎 Developmental Psychology for Children
+# 🔎 Basic Developmental Psychology
 
-**A friendly, one-unit intro to developmental psychology that teaches, tutors, drills, and grades itself — for curious students and adults alike.**
+**A complete, one-unit introduction to developmental psychology that teaches, tutors, drills, and grades itself — built for serious learners entering the discipline.**
 
-Developmental Psychology for Children is a self-paced, single-user web course that delivers a plain-language introduction to developmental psychology — taught, tutored, drilled, and graded entirely by AI, with built-in academic-integrity enforcement. No math, coding, or statistics required. The material is kept tasteful and age-appropriate: it explains the *science* of how people grow and change across the whole lifespan, from before birth to old age.
+Basic Developmental Psychology is a self-paced, single-user web course that delivers a rigorous introduction to developmental psychology — taught, tutored, drilled, and graded entirely by AI, with built-in academic-integrity enforcement. It covers the *science* of how people grow and change across the whole lifespan, from before birth to old age, and is designed for adults coming to the field for the first time: graduate students, researchers, and working professionals who need a substantive foothold in a new discipline.
 
 ---
 
 ## ✨ Features
 
-- **One unit, 8 topics** — a complete plain-language syllabus: what developmental psychology is · nature vs. nurture · the infant mind · attachment · how children think (Piaget) · language development · the teenage brain · aging and the lifespan.
+- **One unit, 8 topics** — a complete syllabus: what developmental psychology is · nature vs. nurture · the infant mind · attachment · how thinking develops (Piaget) · language development · the adolescent brain · aging and the lifespan.
 - **Three-depth lessons** — every lesson reads at **Short / Medium / Long** length, AI-rewritten while keeping the same examples and learning objectives.
 - **Section-scoped AI tutor** — ask about the exact paragraph you're reading; answers stream back token-by-token, grounded in that lecture section.
 - **Adaptive practice** — generated problem sets that get harder on a streak and ease off after a miss; per-session difficulty persists.
@@ -95,11 +95,11 @@ Open the **Diagnostics** page in the app (or hit the API directly) to run:
 
 ## 📚 Who it's for
 
-- **Middle schoolers & curious adults** — a complete, plain-language intro with on-demand tutoring and adaptive practice.
+- **Adult learners new to the field** — graduate students, researchers, and professionals who need a complete, rigorous introduction with on-demand tutoring and adaptive practice.
 - **Instructors & curriculum designers** — a working reference for AI-taught, AI-graded, AI-detection-screened coursework.
 - **Academic-integrity researchers** — a live testbed for layered AI-authorship detection (text classification + keystroke behavior).
 - **Product & engineering teams** — a reference implementation of contract-first full-stack architecture, streaming AI UX, and self-diagnostic tooling.
 
 ---
 
-*Developmental Psychology for Children — where the curriculum, the tutor, the grader, and the integrity check all live in one room.*
+*Basic Developmental Psychology — where the curriculum, the tutor, the grader, and the integrity check all live in one room.*

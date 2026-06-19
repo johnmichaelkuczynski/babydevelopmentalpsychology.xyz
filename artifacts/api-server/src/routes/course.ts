@@ -21,9 +21,9 @@ const router: IRouter = Router();
 
 const WEEK_TITLES: Record<number, { title: string; summary: string }> = {
   1: {
-    title: "Developmental Psychology for Everyone",
+    title: "Basic Developmental Psychology",
     summary:
-      "What developmental psychology really is, the nature-vs-nurture debate, what babies know before they can speak, why the first bond shapes everything, how children think, how toddlers master language, why the teenage brain works the way it does, and how we keep changing as we age — all in plain language, no technical skills required.",
+      "What developmental psychology really is, the nature-vs-nurture debate, what infants know before they can speak, why the first bond shapes everything, how thinking develops, how language is acquired, why the adolescent brain works the way it does, and how we keep changing as we age.",
   },
 };
 
@@ -112,7 +112,7 @@ router.get("/course/overview", async (_req, res) => {
 
   res.json(
     GetCourseOverviewResponse.parse({
-      title: "Developmental Psychology for Children",
+      title: "Basic Developmental Psychology",
       weeks,
       totals: { assignmentsCompleted, assignmentsTotal, practiceCount },
     }),
@@ -317,7 +317,7 @@ router.post(
       "You are an introductory developmental psychology lecturer adding illustrations to your own lecture. " +
       "You are given the CURRENT lecture. Return the SAME lecture, unchanged in what it teaches, but with vivid illustrations added. ABSOLUTE RULES, no exceptions:\n" +
       "1. KEEP every concept, claim, heading, section, and learning objective exactly as they are, in the same order. Do not remove, reorder, or rewrite the existing explanation — only ADD to it.\n" +
-      "2. For EVERY distinct point the lecture makes, add AT LEAST ONE concrete, vivid illustration that makes the point easy to picture: a short scenario, a real-to-life case sketch, an everyday analogy, or a worked example. Keep illustrations tasteful and age-appropriate — never graphic or sensational.\n" +
+      "2. For EVERY distinct point the lecture makes, add AT LEAST ONE concrete, vivid illustration that makes the point easy to picture: a short scenario, a real-to-life case sketch, an everyday analogy, or a worked example. Keep illustrations tasteful and professional — never graphic or sensational.\n" +
       "3. Set off each illustration so it reads as an example (e.g. a short *Example:* sentence or a brief italicized vignette) rather than blending into the original text.\n" +
       "4. Stay accurate to the source material and to developmental psychology as a discipline. Do not invent fake facts, statistics, citations, or quotations; keep examples plausibly illustrative, not presented as documented cases.\n" +
       "5. Use clear Markdown. Use $...$ for any inline math.\n" +

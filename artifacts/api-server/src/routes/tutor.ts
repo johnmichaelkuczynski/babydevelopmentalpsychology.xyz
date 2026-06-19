@@ -26,7 +26,7 @@ router.get("/tutor/suggestions/:lectureId", async (req, res): Promise<void> => {
   const buildUserPrompt = (extra: string) =>
     extra +
     `From the lecture below, write 6 starter questions that make the student APPLY the lecture's ideas to a CONCRETE EXAMPLE. Every question must hang on a specific case and ask the student to reason about that case.\n\n` +
-    `THE SINGLE MOST IMPORTANT RULE: every question must contain an explicit, concrete, EVERYDAY example — a specific relatable situation (e.g. "a baby who plays happily until her mother leaves the room and then bursts into tears", "a preschooler who is sure the taller glass holds more juice even after watching you pour it over", "a toddler who says 'goed' instead of 'went', a word no adult ever taught him"). Keep examples plain-language and non-technical — no technical terms, study citations, or jargon. The question must ask the student to analyze, explain, judge, or predict something about THAT example. Reuse the lecture's own examples when it has them; otherwise invent a vivid, specific one.\n\n` +
+    `THE SINGLE MOST IMPORTANT RULE: every question must contain an explicit, concrete, EVERYDAY example — a specific relatable situation (e.g. "an infant who plays happily until her mother leaves the room and then bursts into tears", "a preschooler who is sure the taller glass holds more juice even after watching you pour it over", "a toddler who says 'goed' instead of 'went', a word no adult ever taught him"). Keep examples plain-language and non-technical — no technical terms, study citations, or jargon. The question must ask the student to analyze, explain, judge, or predict something about THAT example. Reuse the lecture's own examples when it has them; otherwise invent a vivid, specific one.\n\n` +
     `ABSOLUTELY FORBIDDEN — never produce any of these:\n` +
     `- Questions that ask for a definition ("What is X?", "What does X mean?", "Define X").\n` +
     `- Questions that ask to distinguish or compare concepts in the abstract ("How do X and Y differ?", "What is the difference between X and Y?", "How does X relate to Y?").\n` +
@@ -37,7 +37,7 @@ router.get("/tutor/suggestions/:lectureId", async (req, res): Promise<void> => {
     `- BAD: "What's the difference between assimilation and accommodation?"\n` +
     `- GOOD: "Two children are raised by the same parents, but one is bold and the other shy — what does this suggest about whether upbringing alone 'causes' a child's personality?"\n` +
     `- BAD: "What is object permanence?"\n` +
-    `- GOOD: "A 6-month-old stops reaching for a toy the instant you hide it under a blanket — explain what this shows about how a baby that age thinks about objects."\n\n` +
+    `- GOOD: "A 6-month-old stops reaching for a toy the instant you hide it under a blanket — explain what this shows about how an infant that age thinks about objects."\n\n` +
     `Cover several different major ideas from the reading across the 6 questions. One clear sentence each (roughly 12–28 words), in the student's own voice, no compound double-questions. Use $...$ for any inline math.\n\n` +
     `Return exactly 6 questions.\n\nLECTURE TITLE: ${lecture.title}\n\nLECTURE BODY:\n"""\n${lecture.body}\n"""`;
 

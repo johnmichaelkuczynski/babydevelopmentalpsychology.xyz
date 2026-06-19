@@ -64,7 +64,7 @@ export function Scene1({ setCursorPos, setIsClicking }: { setCursorPos: (pos: {x
             exit={{ opacity: 0, filter: 'blur(4px)' }}
             transition={{ duration: 0.4 }}
           >
-            <h1 className="text-4xl font-serif text-primary mb-8 tracking-tight">Developmental Psychology</h1>
+            <h1 className="text-4xl font-serif text-primary mb-8 tracking-tight">Basic Developmental Psychology</h1>
             
             <div className="grid grid-cols-3 gap-6 mb-12">
               <div className="col-span-2 flex space-x-6">
@@ -177,7 +177,7 @@ export function Scene1({ setCursorPos, setIsClicking }: { setCursorPos: (pos: {x
                 <div className="px-6 py-4 flex items-center justify-between opacity-80">
                   <div className="flex items-center space-x-4">
                     <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center text-xs font-medium text-muted-foreground">5</div>
-                    <span>1.5 How children think (Piaget)</span>
+                    <span>1.5 How thinking develops (Piaget)</span>
                   </div>
                   <span className="text-xs text-muted-foreground">10 min</span>
                 </div>

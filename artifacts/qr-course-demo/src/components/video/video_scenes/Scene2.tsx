@@ -78,7 +78,7 @@ export function Scene2({ setCursorPos, setIsClicking }: { setCursorPos: (pos: {x
             Developmental psychology is the study of how people grow and change — from the first moments of infancy, through childhood and the teenage years, all the way into old age.
           </p>
           <p>
-            Change isn't random. There are patterns to how minds and bodies develop across the lifespan. Understanding those patterns helps us care for children and make sense of our own growth.
+            Change isn't random. There are patterns to how minds and bodies develop across the lifespan. Understanding those patterns helps us care for others and make sense of our own growth.
           </p>
           
           <AnimatePresence>
@@ -93,7 +93,7 @@ export function Scene2({ setCursorPos, setIsClicking }: { setCursorPos: (pos: {x
                   Growth is rarely about a single cause. Our genes, the people around us, and the experiences we have all shape who we become — sometimes a little, sometimes a lot.
                 </p>
                 <p>
-                  For example, two children raised in the same home can turn out very differently. Developmental psychology asks why — and uses the answer to help children thrive at every stage of life.
+                  For example, two siblings raised in the same home can turn out very differently. Developmental psychology asks why — and uses the answer to help people thrive at every stage of life.
                 </p>
               </motion.div>
             )}
@@ -120,9 +120,9 @@ export function Scene2({ setCursorPos, setIsClicking }: { setCursorPos: (pos: {x
               >
                 <div className="mb-4 text-xs font-semibold text-muted-foreground uppercase tracking-widest">Starter questions for this section</div>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  <div className="px-3 py-1.5 rounded-full border border-border text-sm text-primary bg-muted/30">Why do babies cry when a parent leaves the room?</div>
-                  <div className="px-3 py-1.5 rounded-full border border-border text-sm text-primary bg-muted/30">Two children grow up in the same home but turn out differently. Why?</div>
-                  <div className="px-3 py-1.5 rounded-full border border-border text-sm text-primary bg-muted/30">What is object permanence, and when do babies learn it?</div>
+                  <div className="px-3 py-1.5 rounded-full border border-border text-sm text-primary bg-muted/30">Why do infants cry when a parent leaves the room?</div>
+                  <div className="px-3 py-1.5 rounded-full border border-border text-sm text-primary bg-muted/30">Two siblings grow up in the same home but turn out differently. Why?</div>
+                  <div className="px-3 py-1.5 rounded-full border border-border text-sm text-primary bg-muted/30">What is object permanence, and when do infants learn it?</div>
                 </div>
                 <div className="w-full h-24 border border-border rounded-lg bg-muted/20 p-3 text-muted-foreground text-sm flex items-end shadow-inner">
                   <div className="w-full flex justify-between">
@@ -157,7 +157,7 @@ export function Scene2({ setCursorPos, setIsClicking }: { setCursorPos: (pos: {x
                     className="p-6 border border-border rounded-xl shadow-sm bg-white"
                   >
                     <p className="text-foreground font-medium mb-6">
-                      A baby happily plays with a toy, but cries the moment a parent hides it under a blanket. What does this suggest about how the infant mind develops?
+                      An infant happily plays with a toy, but cries the moment a parent hides it under a blanket. What does this suggest about how the infant mind develops?
                     </p>
                     <div className="w-full h-12 border border-border rounded-md bg-muted/10 mb-4 px-3 flex items-center text-muted-foreground">Type your answer...</div>
                     <div className="px-4 py-2 bg-primary text-white rounded-md text-sm font-medium w-fit ml-auto">Submit</div>
