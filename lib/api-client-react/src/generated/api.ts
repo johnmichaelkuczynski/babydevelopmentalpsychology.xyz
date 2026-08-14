@@ -32,6 +32,7 @@ import type {
   CourseOverview,
   DetectionResult,
   DetectionScanInput,
+  DownloadCourseParams,
   GenerateLectureExamplesInput,
   Gradebook,
   GraderLabInput,
@@ -59,6 +60,8 @@ import type {
   TopicAnalytics,
   TutorAskInput,
   TutorReply,
+  VisitAck,
+  VisitorStats,
   Week
 } from './api.schemas';
 
@@ -1990,6 +1993,237 @@ export const useGenerateReport = <TError = ErrorType<unknown>,
       > => {
       return useMutation(getGenerateReportMutationOptions(options));
     }
+
+export const getRecordVisitUrl = () => {
+
+
+
+
+  return `/api/analytics/visit`
+}
+
+/**
+ * @summary Record a site visit for the anonymous visitor id in X-Anon-Id
+ */
+export const recordVisit = async ( options?: RequestInit): Promise<VisitAck> => {
+
+  return customFetch<VisitAck>(getRecordVisitUrl(),
+  {
+    ...options,
+    method: 'POST'
+
+
+  }
+);}
+
+
+
+
+export const getRecordVisitMutationOptions = <TError = ErrorType<unknown>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof recordVisit>>, TError,void, TContext>, request?: SecondParameter<typeof customFetch>}
+): UseMutationOptions<Awaited<ReturnType<typeof recordVisit>>, TError,void, TContext> => {
+
+const mutationKey = ['recordVisit'];
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof recordVisit>>, void> = () => {
+
+
+          return  recordVisit(requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type RecordVisitMutationResult = NonNullable<Awaited<ReturnType<typeof recordVisit>>>
+
+    export type RecordVisitMutationError = ErrorType<unknown>
+
+    /**
+ * @summary Record a site visit for the anonymous visitor id in X-Anon-Id
+ */
+export const useRecordVisit = <TError = ErrorType<unknown>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof recordVisit>>, TError,void, TContext>, request?: SecondParameter<typeof customFetch>}
+ ): UseMutationResult<
+        Awaited<ReturnType<typeof recordVisit>>,
+        TError,
+        void,
+        TContext
+      > => {
+      return useMutation(getRecordVisitMutationOptions(options));
+    }
+
+export const getGetVisitorStatsUrl = () => {
+
+
+
+
+  return `/api/analytics/visitors`
+}
+
+/**
+ * @summary Unique-visitor statistics (owner only)
+ */
+export const getVisitorStats = async ( options?: RequestInit): Promise<VisitorStats> => {
+
+  return customFetch<VisitorStats>(getGetVisitorStatsUrl(),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getGetVisitorStatsQueryKey = () => {
+    return [
+    `/api/analytics/visitors`
+    ] as const;
+    }
+
+
+export const getGetVisitorStatsQueryOptions = <TData = Awaited<ReturnType<typeof getVisitorStats>>, TError = ErrorType<void>>( options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getVisitorStats>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetVisitorStatsQueryKey();
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getVisitorStats>>> = ({ signal }) => getVisitorStats({ signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getVisitorStats>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetVisitorStatsQueryResult = NonNullable<Awaited<ReturnType<typeof getVisitorStats>>>
+export type GetVisitorStatsQueryError = ErrorType<void>
+
+
+/**
+ * @summary Unique-visitor statistics (owner only)
+ */
+
+export function useGetVisitorStats<TData = Awaited<ReturnType<typeof getVisitorStats>>, TError = ErrorType<void>>(
+  options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getVisitorStats>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+
+ ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetVisitorStatsQueryOptions(options)
+
+  const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  return { ...query, queryKey: queryOptions.queryKey };
+}
+
+
+
+
+
+
+
+export const getDownloadCourseUrl = (params?: DownloadCourseParams,) => {
+  const normalizedParams = new URLSearchParams();
+
+  Object.entries(params || {}).forEach(([key, value]) => {
+
+    if (value !== undefined) {
+      normalizedParams.append(key, value === null ? 'null' : value.toString())
+    }
+  });
+
+  const stringifiedParams = normalizedParams.toString();
+
+  return stringifiedParams.length > 0 ? `/api/course/download?${stringifiedParams}` : `/api/course/download`
+}
+
+/**
+ * @summary Download the course (short lectures + practice homeworks and exams) as PDF or TXT
+ */
+export const downloadCourse = async (params?: DownloadCourseParams, options?: RequestInit): Promise<string> => {
+
+  return customFetch<string>(getDownloadCourseUrl(params),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getDownloadCourseQueryKey = (params?: DownloadCourseParams,) => {
+    return [
+    `/api/course/download`, ...(params ? [params] : [])
+    ] as const;
+    }
+
+
+export const getDownloadCourseQueryOptions = <TData = Awaited<ReturnType<typeof downloadCourse>>, TError = ErrorType<unknown>>(params?: DownloadCourseParams, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof downloadCourse>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getDownloadCourseQueryKey(params);
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof downloadCourse>>> = ({ signal }) => downloadCourse(params, { signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof downloadCourse>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type DownloadCourseQueryResult = NonNullable<Awaited<ReturnType<typeof downloadCourse>>>
+export type DownloadCourseQueryError = ErrorType<unknown>
+
+
+/**
+ * @summary Download the course (short lectures + practice homeworks and exams) as PDF or TXT
+ */
+
+export function useDownloadCourse<TData = Awaited<ReturnType<typeof downloadCourse>>, TError = ErrorType<unknown>>(
+ params?: DownloadCourseParams, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof downloadCourse>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+
+ ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getDownloadCourseQueryOptions(params,options)
+
+  const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  return { ...query, queryKey: queryOptions.queryKey };
+}
+
+
+
+
+
+
 
 export const getListReasoningAssessmentsUrl = () => {
 

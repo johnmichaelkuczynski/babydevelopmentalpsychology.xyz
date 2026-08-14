@@ -7,7 +7,11 @@ import {
   ClipboardCheck,
   ShieldCheck,
   Search,
+  Download,
+  FileText,
 } from "lucide-react";
+
+const apiBase = `${import.meta.env.BASE_URL}api`;
 
 const features = [
   {
@@ -99,13 +103,13 @@ export default function Landing() {
             full unit of developmental psychology — built for serious learners entering
             the discipline, from graduate students to working professionals.
           </p>
-          <div className="flex items-center justify-center gap-3">
-            <Link href="/sign-up">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link href="/dashboard">
               <button
                 className="px-6 py-3 rounded-md text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                 data-testid="button-cta-start"
               >
-                Sign in with Google to start
+                Start the course — no account needed
               </button>
             </Link>
             <Link href="/sign-in">
@@ -113,10 +117,14 @@ export default function Landing() {
                 className="px-6 py-3 rounded-md text-base font-medium border border-border hover:bg-secondary transition-colors"
                 data-testid="button-cta-signin"
               >
-                I already have an account
+                Sign in
               </button>
             </Link>
           </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Browse everything freely. You'll only be asked to sign in (free) after a
+            short preview of the AI tutor and grader.
+          </p>
         </section>
 
         <section className="max-w-5xl mx-auto px-6 pb-16">
@@ -157,6 +165,37 @@ export default function Landing() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="max-w-3xl mx-auto px-6 pb-24 text-center">
+          <h2 className="font-serif font-semibold text-xl mb-3">
+            Download the Course
+          </h2>
+          <p className="text-muted-foreground mb-6">
+            Get the complete course to keep — all eight short lectures plus the
+            practice homework sets, a practice unit test, and a practice final exam —
+            as a PDF or plain-text file. No account required.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a href={`${apiBase}/course/download?format=pdf`} download>
+              <button
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                data-testid="button-download-pdf"
+              >
+                <Download className="w-4 h-4" />
+                Download as PDF
+              </button>
+            </a>
+            <a href={`${apiBase}/course/download?format=txt`} download>
+              <button
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-base font-medium border border-border hover:bg-secondary transition-colors"
+                data-testid="button-download-txt"
+              >
+                <FileText className="w-4 h-4" />
+                Download as TXT
+              </button>
+            </a>
           </div>
         </section>
       </main>

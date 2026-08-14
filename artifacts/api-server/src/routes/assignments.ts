@@ -18,6 +18,7 @@ import {
 } from "@workspace/api-zod";
 import { gradeAnswer } from "../lib/grading";
 import { detect } from "../lib/detection";
+import { enforceAiQuota } from "../lib/quota";
 
 const router: IRouter = Router();
 
@@ -244,6 +245,7 @@ router.put("/assignments/attempts/:attemptId/answer", async (req, res): Promise<
 });
 
 router.post("/assignments/attempts/:attemptId/submit", async (req, res): Promise<void> => {
+  if (!(await enforceAiQuota(req, res))) return;
   const id = parseIdParam(req.params.attemptId);
   if (!Number.isFinite(id)) {
     res.status(400).json({ error: "invalid id" });

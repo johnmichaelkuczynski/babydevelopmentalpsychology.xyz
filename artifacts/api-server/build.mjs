@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { build as esbuild } from "esbuild";
 import esbuildPluginPino from "esbuild-plugin-pino";
-import { rm } from "node:fs/promises";
+import { rm, cp } from "node:fs/promises";
 
 // Plugins (e.g. 'esbuild-plugin-pino') may use `require` to resolve dependencies
 globalThis.require = createRequire(import.meta.url);
@@ -118,6 +118,12 @@ globalThis.__dirname = __bannerPath.dirname(globalThis.__filename);
     `,
     },
   });
+
+  // pdfkit reads its standard-font AFM files from <dirname>/data at runtime;
+  // the bundle sets __dirname to dist, so copy the data dir alongside it.
+  const pdfkitEntry = globalThis.require.resolve("pdfkit/package.json");
+  const pdfkitData = path.join(path.dirname(pdfkitEntry), "js", "data");
+  await cp(pdfkitData, path.join(distDir, "data"), { recursive: true });
 }
 
 buildAll().catch((err) => {

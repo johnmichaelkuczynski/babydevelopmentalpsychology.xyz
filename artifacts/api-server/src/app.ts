@@ -38,7 +38,32 @@ app.use(
 // Clerk auth proxy must be mounted before body parsers (it streams raw bytes).
 app.use(CLERK_PROXY_PATH, clerkProxyMiddleware());
 
-app.use(cors({ credentials: true, origin: true }));
+// Credentialed CORS must not reflect arbitrary origins. Same-origin requests
+// (the app is served behind the same domain) skip CORS entirely; allow only
+// our own dev/prod domains for cross-origin tooling.
+const allowedOriginSuffixes = [
+  ".replit.dev",
+  ".replit.app",
+  "babydevelopmentalpsychology.xyz",
+  "localhost",
+];
+app.use(
+  cors({
+    credentials: true,
+    origin(origin, callback) {
+      if (!origin) return callback(null, true);
+      try {
+        const { hostname } = new URL(origin);
+        const ok = allowedOriginSuffixes.some(
+          (s) => hostname === s.replace(/^\./, "") || hostname.endsWith(s),
+        );
+        return callback(null, ok);
+      } catch {
+        return callback(null, false);
+      }
+    },
+  }),
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -1,11 +1,59 @@
 import React from "react";
-import { useGetCourseOverview, useGetRecentActivity } from "@workspace/api-client-react";
+import {
+  useGetCourseOverview,
+  useGetRecentActivity,
+  useGetVisitorStats,
+  getGetVisitorStatsQueryKey,
+} from "@workspace/api-client-react";
+import { useUser } from "@clerk/react";
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
 import { ReasoningCallout } from "@/components/ReasoningCallout";
+
+const OWNER_EMAIL = "johnmichaelkuczynski@gmail.com";
+
+// Visitor stats — visible only to the course owner. The API also enforces
+// this server-side (403 for anyone else).
+function OwnerVisitorCard() {
+  const { user } = useUser();
+  const email = user?.primaryEmailAddress?.emailAddress?.toLowerCase();
+  const isOwner = email === OWNER_EMAIL;
+  const { data, isLoading } = useGetVisitorStats({
+    query: {
+      queryKey: getGetVisitorStatsQueryKey(),
+      enabled: isOwner,
+      retry: false,
+    },
+  });
+
+  if (!isOwner) return null;
+  return (
+    <Card data-testid="card-visitor-stats">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+          Unique Visitors
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        {isLoading || !data ? (
+          <Skeleton className="h-10 w-24" />
+        ) : (
+          <>
+            <div className="text-3xl font-serif font-bold mb-1" data-testid="text-unique-visitors">
+              {data.uniqueVisitors}
+            </div>
+            <p className="text-xs text-muted-foreground">
+              {data.uniqueLast7Days} in the last 7 days · {data.totalVisits} total visits
+            </p>
+          </>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function Dashboard() {
   const { data: overview, isLoading: isLoadingOverview } = useGetCourseOverview();
@@ -50,6 +98,8 @@ export default function Dashboard() {
               )}
             </CardContent>
           </Card>
+
+          <OwnerVisitorCard />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

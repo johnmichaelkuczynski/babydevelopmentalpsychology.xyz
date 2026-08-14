@@ -1,21 +1,98 @@
 import { Router, type IRouter } from "express";
-import { asc, desc, eq, sql } from "drizzle-orm";
+import { asc, desc, eq, gte, sql } from "drizzle-orm";
+import { getAuth, clerkClient } from "@clerk/express";
 import {
   db,
   topicsTable,
   attemptsTable,
   practiceAttemptsTable,
   assignmentsTable,
+  visitorsTable,
 } from "@workspace/db";
 import {
   GetAnalyticsSummaryResponse,
   GetTopicAnalyticsResponse,
   GetRecentActivityResponse,
   GenerateReportResponse,
+  RecordVisitResponse,
+  GetVisitorStatsResponse,
 } from "@workspace/api-zod";
 import { chatJson } from "../lib/ai";
+import { getAnonId, enforceAiQuota } from "../lib/quota";
 
 const router: IRouter = Router();
+
+// Only this account may see visitor statistics.
+const OWNER_EMAIL = "johnmichaelkuczynski@gmail.com";
+
+router.post("/analytics/visit", async (req, res) => {
+  const anonId = getAnonId(req);
+  if (!anonId) {
+    res.json(RecordVisitResponse.parse({ recorded: false }));
+    return;
+  }
+  await db
+    .insert(visitorsTable)
+    .values({ anonId })
+    .onConflictDoUpdate({
+      target: visitorsTable.anonId,
+      set: {
+        visitCount: sql`${visitorsTable.visitCount} + 1`,
+        lastSeenAt: new Date(),
+      },
+    });
+  res.json(RecordVisitResponse.parse({ recorded: true }));
+});
+
+router.get("/analytics/visitors", async (req, res) => {
+  const { userId } = getAuth(req);
+  if (!userId) {
+    res.status(403).json({ error: "not authorized" });
+    return;
+  }
+  let email = "";
+  try {
+    const user = await clerkClient.users.getUser(userId);
+    email =
+      user.primaryEmailAddress?.emailAddress ??
+      user.emailAddresses[0]?.emailAddress ??
+      "";
+  } catch {
+    res.status(403).json({ error: "not authorized" });
+    return;
+  }
+  if (email.toLowerCase() !== OWNER_EMAIL) {
+    res.status(403).json({ error: "not authorized" });
+    return;
+  }
+
+  const all = await db.select().from(visitorsTable);
+  const now = Date.now();
+  const d7 = new Date(now - 7 * 24 * 60 * 60 * 1000);
+  const d30 = new Date(now - 30 * 24 * 60 * 60 * 1000);
+  const uniqueLast7Days = all.filter((v) => v.lastSeenAt >= d7).length;
+  const uniqueLast30Days = all.filter((v) => v.lastSeenAt >= d30).length;
+  const totalVisits = all.reduce((s, v) => s + v.visitCount, 0);
+  const firstVisitAt =
+    all.length === 0
+      ? null
+      : new Date(Math.min(...all.map((v) => v.firstSeenAt.getTime()))).toISOString();
+  const lastVisitAt =
+    all.length === 0
+      ? null
+      : new Date(Math.max(...all.map((v) => v.lastSeenAt.getTime()))).toISOString();
+
+  res.json(
+    GetVisitorStatsResponse.parse({
+      uniqueVisitors: all.length,
+      totalVisits,
+      uniqueLast7Days,
+      uniqueLast30Days,
+      firstVisitAt,
+      lastVisitAt,
+    }),
+  );
+});
 
 type StrengthLabel = "strong" | "solid" | "developing" | "weak" | "untested";
 function labelFor(accuracy: number, attempts: number): StrengthLabel {
@@ -159,7 +236,8 @@ router.get("/analytics/activity", async (_req, res) => {
   res.json(GetRecentActivityResponse.parse(items.slice(0, 30)));
 });
 
-router.post("/analytics/report", async (_req, res) => {
+router.post("/analytics/report", async (req, res) => {
+  if (!(await enforceAiQuota(req, res))) return;
   const topics = await topicStats();
   const submitted = await db
     .select()

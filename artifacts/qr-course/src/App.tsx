@@ -14,6 +14,12 @@ import {
 import { ClerkProvider, SignIn, SignUp, Show, useClerk } from "@clerk/react";
 import { publishableKeyFromHost } from "@clerk/react/internal";
 import { shadcn } from "@clerk/themes";
+import {
+  setExtraHeadersGetter,
+  setUnauthorizedHandler,
+  recordVisit,
+} from "@workspace/api-client-react";
+import { getAnonId } from "@/lib/anon";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
@@ -104,6 +110,25 @@ const clerkAppearance = {
 
 const queryClient = new QueryClient();
 
+// Attach the anonymous visitor id to every API call. Drives visitor counting
+// and the free AI-usage budget for signed-out visitors.
+setExtraHeadersGetter(() => ({ "x-anon-id": getAnonId() }));
+
+// When the free AI budget runs out the API replies 401 login_required —
+// send the visitor to the sign-in page.
+setUnauthorizedHandler((error: { data?: unknown }) => {
+  const data = error.data as { error?: string } | undefined;
+  if (data?.error === "login_required") {
+    window.location.assign(`${basePath}/sign-in`);
+  }
+});
+
+// Count the visit once per browser session.
+if (!sessionStorage.getItem("bdp-visit-recorded")) {
+  sessionStorage.setItem("bdp-visit-recorded", "1");
+  recordVisit().catch(() => {});
+}
+
 function SignInPage() {
   return (
     <div className="flex min-h-[100dvh] items-center justify-center bg-background px-4">
@@ -179,43 +204,53 @@ function ClerkQueryClientCacheInvalidator() {
   return null;
 }
 
+const ROUTE_TITLES: Array<[RegExp, string]> = [
+  [/^\/$/, "Basic Developmental Psychology — Free AI-Taught Online Course"],
+  [/^\/dashboard/, "Dashboard — Basic Developmental Psychology"],
+  [/^\/assignments/, "Assignments & Exams — Basic Developmental Psychology"],
+  [/^\/analytics/, "Progress Analytics — Basic Developmental Psychology"],
+  [/^\/reasoning/, "Diagnostics — Basic Developmental Psychology"],
+  [/^\/grades/, "Grades — Basic Developmental Psychology"],
+  [/^\/weeks/, "Course Unit — Basic Developmental Psychology"],
+  [/^\/lectures/, "Lecture — Basic Developmental Psychology"],
+  [/^\/practice/, "Adaptive Practice — Basic Developmental Psychology"],
+  [/^\/sign-in/, "Sign In — Basic Developmental Psychology"],
+  [/^\/sign-up/, "Sign Up — Basic Developmental Psychology"],
+];
+
+function RouteTitle() {
+  const [location] = useLocation();
+  useEffect(() => {
+    const match = ROUTE_TITLES.find(([re]) => re.test(location));
+    document.title = match
+      ? match[1]
+      : "Basic Developmental Psychology — Free AI-Taught Online Course";
+  }, [location]);
+  return null;
+}
+
 function Router() {
   return (
     <Switch>
       <Route path="/" component={HomeRedirect} />
       <Route path="/sign-in/*?" component={SignInPage} />
       <Route path="/sign-up/*?" component={SignUpPage} />
-      <Route path="/dashboard" component={protectedComponent(Dashboard)} />
-      <Route path="/assignments" component={protectedComponent(Assignments)} />
-      <Route
-        path="/assignments/:id/practice"
-        component={protectedComponent(PracticeAssignment)}
-      />
-      <Route
-        path="/assignments/:id"
-        component={protectedComponent(AssignmentRunner)}
-      />
-      <Route path="/analytics" component={protectedComponent(Analytics)} />
-      <Route path="/reasoning" component={protectedComponent(Reasoning)} />
-      <Route
-        path="/reasoning/:id"
-        component={protectedComponent(ReasoningRunner)}
-      />
-      <Route path="/grades" component={protectedComponent(Grades)} />
+      {/* Open to everyone — anonymous visitors can browse and try the course.
+          The API enforces a free AI-usage budget and asks for sign-in after. */}
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/assignments" component={Assignments} />
+      <Route path="/assignments/:id/practice" component={PracticeAssignment} />
+      <Route path="/assignments/:id" component={AssignmentRunner} />
+      <Route path="/analytics" component={Analytics} />
+      <Route path="/reasoning" component={Reasoning} />
+      <Route path="/reasoning/:id" component={ReasoningRunner} />
+      <Route path="/grades" component={Grades} />
+      <Route path="/weeks/:weekNumber" component={WeekView} />
+      <Route path="/lectures/:lectureId" component={LectureView} />
+      <Route path="/practice/topic/:topicId" component={TopicPractice} />
+      {/* Still require sign-in */}
       <Route path="/admin" component={protectedComponent(AdminMode)} />
       <Route path="/diagnostics" component={protectedComponent(Diagnostics)} />
-      <Route
-        path="/weeks/:weekNumber"
-        component={protectedComponent(WeekView)}
-      />
-      <Route
-        path="/lectures/:lectureId"
-        component={protectedComponent(LectureView)}
-      />
-      <Route
-        path="/practice/topic/:topicId"
-        component={protectedComponent(TopicPractice)}
-      />
       <Route component={NotFound} />
     </Switch>
   );
@@ -251,6 +286,7 @@ function ClerkProviderWithRoutes() {
       <QueryClientProvider client={queryClient}>
         <ClerkQueryClientCacheInvalidator />
         <TooltipProvider>
+          <RouteTitle />
           <Router />
           <Toaster />
         </TooltipProvider>

@@ -394,6 +394,21 @@ export interface AnalyticsSummary {
   weakestTopic?: string | null;
 }
 
+export interface VisitAck {
+  recorded: boolean;
+}
+
+export interface VisitorStats {
+  uniqueVisitors: number;
+  totalVisits: number;
+  uniqueLast7Days: number;
+  uniqueLast30Days: number;
+  /** @nullable */
+  firstVisitAt?: string | null;
+  /** @nullable */
+  lastVisitAt?: string | null;
+}
+
 export type TopicAnalyticsStrengthLabel = typeof TopicAnalyticsStrengthLabel[keyof typeof TopicAnalyticsStrengthLabel];
 
 
@@ -823,4 +838,16 @@ export interface Gradebook {
   coursework: GradebookCourseworkItem[];
   reasoning: GradebookReasoningItem[];
 }
+
+export type DownloadCourseParams = {
+format?: DownloadCourseFormat;
+};
+
+export type DownloadCourseFormat = typeof DownloadCourseFormat[keyof typeof DownloadCourseFormat];
+
+
+export const DownloadCourseFormat = {
+  txt: 'txt',
+  pdf: 'pdf',
+} as const;
 

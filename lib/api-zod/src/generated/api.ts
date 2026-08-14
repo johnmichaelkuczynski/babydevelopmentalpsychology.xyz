@@ -627,6 +627,37 @@ export const GenerateReportResponse = zod.object({
 
 
 /**
+ * @summary Record a site visit for the anonymous visitor id in X-Anon-Id
+ */
+export const RecordVisitResponse = zod.object({
+  "recorded": zod.boolean()
+})
+
+
+/**
+ * @summary Unique-visitor statistics (owner only)
+ */
+export const GetVisitorStatsResponse = zod.object({
+  "uniqueVisitors": zod.number(),
+  "totalVisits": zod.number(),
+  "uniqueLast7Days": zod.number(),
+  "uniqueLast30Days": zod.number(),
+  "firstVisitAt": zod.coerce.date().nullish(),
+  "lastVisitAt": zod.coerce.date().nullish()
+})
+
+
+/**
+ * @summary Download the course (short lectures + practice homeworks and exams) as PDF or TXT
+ */
+export const downloadCourseQueryFormatDefault = `txt`;
+
+export const DownloadCourseQueryParams = zod.object({
+  "format": zod.enum(['txt', 'pdf']).default(downloadCourseQueryFormatDefault)
+})
+
+
+/**
  * @summary List all diagnostic reasoning assessments with attempt status
  */
 export const ListReasoningAssessmentsResponseItem = zod.object({

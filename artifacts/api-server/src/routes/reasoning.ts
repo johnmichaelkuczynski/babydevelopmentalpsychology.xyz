@@ -1,5 +1,6 @@
 import { Router, type IRouter } from "express";
 import { and, asc, desc, eq, isNull } from "drizzle-orm";
+import { enforceAiQuota } from "../lib/quota";
 import {
   db,
   assignmentsTable,
@@ -201,6 +202,7 @@ router.get("/reasoning/assessments/:assessmentId", async (req, res): Promise<voi
 });
 
 router.post("/reasoning/assessments/:assessmentId/start", async (req, res): Promise<void> => {
+  if (!(await enforceAiQuota(req, res))) return;
   const id = parseIdParam(req.params.assessmentId);
   if (!Number.isFinite(id)) {
     res.status(400).json({ error: "invalid id" });
@@ -316,6 +318,7 @@ router.post("/reasoning/assessments/:assessmentId/start", async (req, res): Prom
 });
 
 router.post("/reasoning/assessments/:assessmentId/submit", async (req, res): Promise<void> => {
+  if (!(await enforceAiQuota(req, res))) return;
   const id = parseIdParam(req.params.assessmentId);
   if (!Number.isFinite(id)) {
     res.status(400).json({ error: "invalid id" });

@@ -3,6 +3,7 @@ import { eq } from "drizzle-orm";
 import { db, lecturesTable } from "@workspace/db";
 import { AskTutorBody, AskTutorResponse } from "@workspace/api-zod";
 import { chatText, chatJson, FAST_MODEL } from "../lib/ai";
+import { enforceAiQuota, recordAiUsage, hasAiQuota } from "../lib/quota";
 
 const router: IRouter = Router();
 
@@ -18,6 +19,14 @@ router.get("/tutor/suggestions/:lectureId", async (req, res): Promise<void> => {
     .where(eq(lecturesTable.id, lectureId));
   if (!lecture) {
     res.status(404).json({ error: "lecture not found" });
+    return;
+  }
+
+  // Suggestions auto-fire when a lecture opens; for anonymous visitors who
+  // have exhausted the free budget, skip generation instead of erroring.
+  if (!(await hasAiQuota(req))) {
+    res.setHeader("Cache-Control", "no-store");
+    res.json({ questions: [] });
     return;
   }
 
@@ -96,6 +105,7 @@ router.get("/tutor/suggestions/:lectureId", async (req, res): Promise<void> => {
 });
 
 router.post("/tutor/ask", async (req, res): Promise<void> => {
+  if (!(await enforceAiQuota(req, res))) return;
   const parsed = AskTutorBody.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ error: parsed.error.message });
@@ -112,6 +122,7 @@ router.post("/tutor/ask", async (req, res): Promise<void> => {
   let text = "";
   try {
     text = await chatText(sys, user);
+    await recordAiUsage(req, text);
   } catch {
     text =
       "I'm having trouble reaching the tutor service right now. Try again in a moment, and consider re-reading the relevant section of the lecture.";

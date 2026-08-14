@@ -44,6 +44,31 @@ export function setAuthTokenGetter(getter: AuthTokenGetter | null): void {
   _authTokenGetter = getter;
 }
 
+export type ExtraHeadersGetter = () => Record<string, string>;
+
+let _extraHeadersGetter: ExtraHeadersGetter | null = null;
+
+/**
+ * Register a getter that supplies extra headers attached to every request
+ * (e.g. an anonymous visitor id header). Pass `null` to clear.
+ */
+export function setExtraHeadersGetter(getter: ExtraHeadersGetter | null): void {
+  _extraHeadersGetter = getter;
+}
+
+export type UnauthorizedHandler = (error: ApiError) => void;
+
+let _unauthorizedHandler: UnauthorizedHandler | null = null;
+
+/**
+ * Register a handler invoked whenever the API responds 401. Useful for
+ * redirecting to a sign-in page when a free-usage quota is exhausted.
+ * Pass `null` to clear.
+ */
+export function setUnauthorizedHandler(handler: UnauthorizedHandler | null): void {
+  _unauthorizedHandler = handler;
+}
+
 function isRequest(input: RequestInfo | URL): input is Request {
   return typeof Request !== "undefined" && input instanceof Request;
 }
@@ -358,13 +383,23 @@ export async function customFetch<T = unknown>(
     }
   }
 
+  if (_extraHeadersGetter) {
+    for (const [key, value] of Object.entries(_extraHeadersGetter())) {
+      if (!headers.has(key)) headers.set(key, value);
+    }
+  }
+
   const requestInfo = { method, url: resolveUrl(input) };
 
   const response = await fetch(input, { ...init, method, headers });
 
   if (!response.ok) {
     const errorData = await parseErrorBody(response, method);
-    throw new ApiError(response, errorData, requestInfo);
+    const error = new ApiError(response, errorData, requestInfo);
+    if (response.status === 401 && _unauthorizedHandler) {
+      _unauthorizedHandler(error);
+    }
+    throw error;
   }
 
   return (await parseSuccessBody(response, responseType, requestInfo)) as T;

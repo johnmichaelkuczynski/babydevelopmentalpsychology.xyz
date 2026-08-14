@@ -514,6 +514,55 @@ paths:
               schema:
                 $ref: "#/components/schemas/AnalyticsReport"
 
+  /analytics/visit:
+    post:
+      operationId: recordVisit
+      tags: [analytics]
+      summary: Record a site visit for the anonymous visitor id in X-Anon-Id
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VisitAck"
+
+  /analytics/visitors:
+    get:
+      operationId: getVisitorStats
+      tags: [analytics]
+      summary: Unique-visitor statistics (owner only)
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VisitorStats"
+        "403":
+          description: Not authorized
+
+  /course/download:
+    get:
+      operationId: downloadCourse
+      tags: [course]
+      summary: Download the course (short lectures + practice homeworks and exams) as PDF or TXT
+      parameters:
+        - name: format
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [txt, pdf]
+            default: txt
+      responses:
+        "200":
+          description: The course document
+          content:
+            text/plain:
+              schema:
+                type: string
+
   /reasoning/assessments:
     get:
       operationId: listReasoningAssessments
@@ -1025,6 +1074,23 @@ components:
         streakDays: { type: integer }
         strongestTopic: { type: ["string", "null"] }
         weakestTopic: { type: ["string", "null"] }
+
+    VisitAck:
+      type: object
+      required: [recorded]
+      properties:
+        recorded: { type: boolean }
+
+    VisitorStats:
+      type: object
+      required: [uniqueVisitors, totalVisits, uniqueLast7Days, uniqueLast30Days]
+      properties:
+        uniqueVisitors: { type: integer }
+        totalVisits: { type: integer }
+        uniqueLast7Days: { type: integer }
+        uniqueLast30Days: { type: integer }
+        firstVisitAt: { type: ["string", "null"], format: date-time }
+        lastVisitAt: { type: ["string", "null"], format: date-time }
 
     TopicAnalytics:
       type: object

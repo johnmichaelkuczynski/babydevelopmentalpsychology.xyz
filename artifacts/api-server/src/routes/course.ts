@@ -16,6 +16,7 @@ import {
   GenerateLectureExamplesBody,
 } from "@workspace/api-zod";
 import { chatText } from "../lib/ai";
+import { enforceAiQuota, recordAiUsage } from "../lib/quota";
 
 const router: IRouter = Router();
 
@@ -168,6 +169,7 @@ function parseLectureId(req: { params: { lectureId?: string | string[] } }): num
 router.post(
   "/course/lectures/:lectureId/rewrite",
   async (req, res): Promise<void> => {
+    if (!(await enforceAiQuota(req, res))) return;
     const lectureId = parseLectureId(req);
     if (lectureId === null) {
       res.status(400).json({ error: "invalid lectureId" });
@@ -220,6 +222,7 @@ router.post(
     let rewritten = "";
     try {
       rewritten = (await chatText(sys, user)).trim();
+      await recordAiUsage(req, rewritten);
     } catch {
       res
         .status(502)
@@ -271,6 +274,7 @@ router.delete(
 router.post(
   "/course/lectures/:lectureId/examples",
   async (req, res): Promise<void> => {
+    if (!(await enforceAiQuota(req, res))) return;
     const lectureId = parseLectureId(req);
     if (lectureId === null) {
       res.status(400).json({ error: "invalid lectureId" });
@@ -329,6 +333,7 @@ router.post(
     let augmented = "";
     try {
       augmented = (await chatText(sys, user)).trim();
+      await recordAiUsage(req, augmented);
     } catch {
       res.status(502).json({
         error: "The example service is unavailable right now. Please try again in a moment.",

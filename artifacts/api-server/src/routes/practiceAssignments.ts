@@ -15,6 +15,7 @@ import {
   GradePracticeAssignmentResponse,
 } from "@workspace/api-zod";
 import { chatJson } from "../lib/ai";
+import { enforceAiQuota, recordAiUsage } from "../lib/quota";
 import { gradePracticeEssay } from "../lib/grading";
 
 const router: IRouter = Router();
@@ -32,6 +33,7 @@ function parseIdParam(raw: unknown): number {
 router.post(
   "/assignments/:assignmentId/practice",
   async (req, res): Promise<void> => {
+    if (!(await enforceAiQuota(req, res))) return;
     const assignmentId = parseIdParam(req.params.assignmentId);
     if (!Number.isFinite(assignmentId)) {
       res.status(400).json({ error: "invalid assignmentId" });
@@ -98,6 +100,11 @@ router.post(
     } catch {
       generated = [];
     }
+
+    await recordAiUsage(
+      req,
+      generated.map((g) => `${g.prompt}${g.explanation}`).join(""),
+    );
 
     // Fall back to a self-contained restatement if generation failed/short.
     const finalProblems = templates.map((t, i) => {
@@ -187,6 +194,7 @@ router.post(
 router.post(
   "/practice/assignment-sessions/:sessionId/grade",
   async (req, res): Promise<void> => {
+    if (!(await enforceAiQuota(req, res))) return;
     const sessionId = parseIdParam(req.params.sessionId);
     if (!Number.isFinite(sessionId)) {
       res.status(400).json({ error: "invalid sessionId" });

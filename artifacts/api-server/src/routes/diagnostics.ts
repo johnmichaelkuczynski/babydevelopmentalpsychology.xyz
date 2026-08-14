@@ -16,6 +16,7 @@ import {
 import { chatText, chatJson, FAST_MODEL } from "../lib/ai";
 import { detect, gptzeroAiScore } from "../lib/detection";
 import { gradeAnswer } from "../lib/grading";
+import { enforceAiQuota } from "../lib/quota";
 
 const router: IRouter = Router();
 
@@ -643,6 +644,7 @@ router.post("/diagnostics/quality-control", async (_req, res) => {
 
 // ---------- Expand lectures: generate medium / long versions with more examples ----------
 router.post("/diagnostics/expand-lectures", async (req, res) => {
+  if (!(await enforceAiQuota(req, res))) return;
   const rawLevel = String(req.query.level ?? "");
   if (rawLevel !== "medium" && rawLevel !== "long") {
     res.status(400).json({ error: "level must be 'medium' or 'long'" });
