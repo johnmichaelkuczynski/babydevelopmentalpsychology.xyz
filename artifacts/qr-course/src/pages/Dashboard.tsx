@@ -12,6 +12,7 @@ import { Link } from "wouter";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
 import { ReasoningCallout } from "@/components/ReasoningCallout";
+import { TopicsList } from "@/components/TopicsList";
 
 const OWNER_EMAIL = "johnmichaelkuczynski@gmail.com";
 
@@ -61,7 +62,14 @@ export default function Dashboard() {
 
   return (
     <Layout>
-      <div className="p-8 max-w-6xl mx-auto w-full flex flex-col gap-8">
+      <div className="p-8 max-w-7xl mx-auto w-full flex gap-8 items-start">
+        <aside className="hidden lg:block sticky top-8">
+          <TopicsList />
+        </aside>
+        <div className="flex-1 min-w-0 flex flex-col gap-8">
+        <div className="lg:hidden">
+          <TopicsList />
+        </div>
         <div>
           <h1 className="text-3xl font-serif font-bold text-primary mb-2">
             {overview ? overview.title : <Skeleton className="h-9 w-64" />}
@@ -153,6 +161,7 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           </div>
+        </div>
         </div>
       </div>
     </Layout>

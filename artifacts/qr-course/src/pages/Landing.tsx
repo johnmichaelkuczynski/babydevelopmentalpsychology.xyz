@@ -11,6 +11,8 @@ import {
   FileText,
 } from "lucide-react";
 
+import { TopicsList } from "@/components/TopicsList";
+
 const apiBase = `${import.meta.env.BASE_URL}api`;
 
 const features = [
@@ -89,7 +91,13 @@ export default function Landing() {
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 relative">
+        <aside className="hidden lg:block absolute left-0 top-0 pl-6 pt-8">
+          <TopicsList />
+        </aside>
+        <div className="lg:hidden px-6 pt-8">
+          <TopicsList />
+        </div>
         <section className="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium mb-6">
             <BarChart3 className="w-3.5 h-3.5" />
