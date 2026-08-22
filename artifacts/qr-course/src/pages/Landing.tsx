@@ -71,24 +71,6 @@ export default function Landing() {
             Basic Developmental Psychology
           </span>
         </div>
-        <div className="flex items-center gap-2">
-          <Link href="/sign-in">
-            <button
-              className="px-4 py-2 rounded-md text-sm font-medium border border-border hover:bg-secondary transition-colors"
-              data-testid="button-sign-in"
-            >
-              Sign in
-            </button>
-          </Link>
-          <Link href="/sign-up">
-            <button
-              className="px-4 py-2 rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-              data-testid="button-sign-up"
-            >
-              Get started
-            </button>
-          </Link>
-        </div>
       </header>
 
       <main className="flex-1 relative">
@@ -120,18 +102,9 @@ export default function Landing() {
                 Start the course — no account needed
               </button>
             </Link>
-            <Link href="/sign-in">
-              <button
-                className="px-6 py-3 rounded-md text-base font-medium border border-border hover:bg-secondary transition-colors"
-                data-testid="button-cta-signin"
-              >
-                Sign in
-              </button>
-            </Link>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            Browse everything freely. You'll only be asked to sign in (free) after a
-            short preview of the AI tutor and grader.
+            Browse, study, and use every course tool freely. No account required.
           </p>
         </section>
 

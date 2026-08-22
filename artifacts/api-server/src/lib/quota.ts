@@ -31,14 +31,7 @@ const REQUEST_PRECHARGE = 300;
  * Signed-in users always do.
  */
 export async function hasAiQuota(req: Request): Promise<boolean> {
-  if (isSignedIn(req)) return true;
-  const anonId = getAnonId(req);
-  if (!anonId) return false;
-  const [row] = await db
-    .select()
-    .from(anonAiUsageTable)
-    .where(eq(anonAiUsageTable.anonId, anonId));
-  return (row?.charsGenerated ?? 0) < FREE_AI_CHAR_LIMIT;
+  return true;
 }
 
 /**
@@ -51,38 +44,6 @@ export async function hasAiQuota(req: Request): Promise<boolean> {
  * cannot all pass a stale read.
  */
 export async function enforceAiQuota(req: Request, res: Response): Promise<boolean> {
-  if (isSignedIn(req)) return true;
-
-  const anonId = getAnonId(req);
-  if (!anonId) {
-    res.status(401).json({
-      error: "login_required",
-      message: "Sign in with Google to keep using the AI features.",
-    });
-    return false;
-  }
-
-  const rows = await db
-    .insert(anonAiUsageTable)
-    .values({ anonId, charsGenerated: REQUEST_PRECHARGE })
-    .onConflictDoUpdate({
-      target: anonAiUsageTable.anonId,
-      set: {
-        charsGenerated: sql`${anonAiUsageTable.charsGenerated} + ${REQUEST_PRECHARGE}`,
-        updatedAt: new Date(),
-      },
-      setWhere: sql`${anonAiUsageTable.charsGenerated} < ${FREE_AI_CHAR_LIMIT}`,
-    })
-    .returning();
-
-  if (rows.length === 0) {
-    res.status(401).json({
-      error: "login_required",
-      message:
-        "You've used the free preview of the AI features. Sign in with Google to continue — it's free.",
-    });
-    return false;
-  }
   return true;
 }
 
