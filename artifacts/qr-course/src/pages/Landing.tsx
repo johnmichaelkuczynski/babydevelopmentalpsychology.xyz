@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import { TopicsList } from "@/components/TopicsList";
+import { CompanyLinks } from "@/components/CompanyLinks";
 
 const apiBase = `${import.meta.env.BASE_URL}api`;
 
@@ -71,6 +72,7 @@ export default function Landing() {
             Basic Developmental Psychology
           </span>
         </div>
+        <CompanyLinks />
       </header>
 
       <main className="flex-1 relative">

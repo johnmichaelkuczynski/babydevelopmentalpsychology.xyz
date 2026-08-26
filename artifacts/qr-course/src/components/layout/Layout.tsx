@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { LayoutDashboard, PenTool, BarChart3, Activity, RotateCcw, Sparkles, Scale, GraduationCap, ShieldCheck, Search } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAdminMode } from "@/lib/adminMode";
+import { CompanyLinks } from "@/components/CompanyLinks";
 
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -54,8 +55,11 @@ export function Sidebar() {
         })}
       </div>
 
-      <div className="p-4 border-t border-border text-xs text-muted-foreground text-center">
-        Basic Developmental Psychology
+      <div className="p-4 border-t border-border flex flex-col gap-3">
+        <CompanyLinks compact />
+        <div className="text-xs text-muted-foreground text-center">
+          Basic Developmental Psychology
+        </div>
       </div>
     </div>
   );
